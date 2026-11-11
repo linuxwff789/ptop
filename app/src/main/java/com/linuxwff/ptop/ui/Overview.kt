@@ -67,7 +67,7 @@ private fun CpuPanel(s: Snapshot) {
                         T("${c.idx}", C.faint, 9.sp, modifier = Modifier.width(13.dp))
                         Bar(c.pct, Modifier.weight(1f), 4.dp)
                         Spacer(Modifier.width(6.dp))
-                        T(padStart("${(c.pct * 100).toInt()}%", 4), C.dim, 9.sp)
+                        T(padStart(String.format(java.util.Locale.US, "%.0f%%", c.pct * 100), 4), C.dim, 9.sp)
                     }
                 }
                 if (row.size == 1) Spacer(Modifier.weight(1f))

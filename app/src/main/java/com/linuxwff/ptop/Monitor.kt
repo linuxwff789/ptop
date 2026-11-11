@@ -176,6 +176,10 @@ class Monitor(private val ctx: Context) {
             coreList.add(Core(i - 1, v.coerceIn(0f, 1f), p.freqs.getOrElse(i - 1) { 0 }))
         }
         prevCore = p.cpu
+        if (uidAge % 4 == 0 && p.cpu.size > 1) {
+            val c1 = p.cpu[1]
+            android.util.Log.d("ptop", "core1 user=${c1.user} nice=${c1.nice} sys=${c1.system} idle=${c1.idle} iowait=${c1.iowait} busy=${c1.busy} total=${c1.total} pct=${coreList.getOrNull(0)?.pct}")
+        }
 
         val busy = totalCpu.total - totalCpu.idle - totalCpu.iowait
         val cpuShown = (if (prevBusy < 0) {
