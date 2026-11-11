@@ -72,8 +72,15 @@ object Root {
     }
 
     fun ensureDeployed(ctx: Context): Boolean {
-        val probe = exec("test -x $SNAP -a -x $DETAIL -a -x $UIDMAP && echo READY")
-        if (probe?.contains("READY") == true) {
+        // The script is version-stamped: an app update must replace the copy in
+        // /data/local/tmp, otherwise new sections (e.g. @@IO) never arrive.
+        val want = runCatching {
+            ctx.assets.open("ptop_snap.sh").bufferedReader().use { r ->
+                r.readLine() + "\n" + (r.readLine() ?: "")
+            }
+        }.getOrNull()
+        val probe = exec("head -2 $SNAP 2>/dev/null; test -x $DETAIL -a -x $UIDMAP && echo READY")
+        if (probe != null && probe.contains("READY") && want != null && probe.contains(want)) {
             granted = true
             return true
         }

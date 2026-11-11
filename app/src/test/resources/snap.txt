@@ -1,0 +1,1233 @@
+@@L	3.78	1.94	1.26
+@@U	345234.68
+@@C	cpu  14612831 988379 11502924 243240024 181127 2955969 411715 7739 0 0
+@@C	cpu0 2962557 277552 3757705 25337120 26390 1109300 126452 2849 0 0
+@@C	cpu1 2429964 261187 2485394 28155309 19010 604514 82524 1595 0 0
+@@C	cpu2 1824239 147572 2153932 28880367 8322 836132 180674 1611 0 0
+@@C	cpu3 1818680 70315 1099237 31215683 29180 146412 7453 295 0 0
+@@C	cpu4 1788998 74451 724231 31714317 27543 90044 5856 307 0 0
+@@C	cpu5 1490049 57827 519059 32302161 22489 64379 3699 379 0 0
+@@C	cpu6 1476776 57790 517792 32316172 22782 64400 3579 383 0 0
+@@C	cpu7 821563 41683 245570 33318891 25405 40785 1474 317 0 0
+@@M	11463672	175956	3673988	6652	3530808	4194300	1609704	11268	63092
+@@N	lo	6032399530	6032399530
+@@N	dummy0	0	7280
+@@N	ifb0	0	0
+@@N	ifb1	0	0
+@@N	tunl0	0	0
+@@N	gre0	0	0
+@@N	gretap0	0	0
+@@N	erspan0	0	0
+@@N	ip_vti0	0	0
+@@N	ip6_vti0	0	0
+@@N	sit0	0	0
+@@N	ip6tnl0	0	0
+@@N	ip6gre0	0	0
+@@N	rmnet_ipa0	2609031929	597425733
+@@N	rmnet_data0	97388	84434
+@@N	rmnet_data1	1388	134188
+@@N	rmnet_data2	1430440396	418635451
+@@N	rmnet_data3	965393504	96313135
+@@N	rmnet_data4	933660614	70157845
+@@N	rmnet_data5	0	0
+@@N	r_rmnet_data0	152240	176344
+@@N	r_rmnet_data1	0	0
+@@N	r_rmnet_data2	0	0
+@@N	r_rmnet_data3	0	0
+@@N	wlan0	33590425290	1945534982
+@@N	p2p0	0	0
+@@N	wifi-aware0	0	0
+@@N	tun0	3677232777	3678004348
+@@D	sda	41504664	1348692440	359952560
+@@D	sda1	0	0	0
+@@D	sda2	0	0	0
+@@D	sda3	0	0	0
+@@D	sda4	0	0	0
+@@D	sda5	0	0	0
+@@D	sda6	0	0	0
+@@D	sda7	0	0	0
+@@D	sda8	0	0	0
+@@D	sda9	0	0	0
+@@D	sda10	0	0	0
+@@D	sda11	1	8	0
+@@D	sda12	0	0	0
+@@D	sda13	6	48	0
+@@D	sda14	0	0	0
+@@D	sda15	0	0	0
+@@D	sda16	519	4152	1032
+@@D	sda17	68	784	656
+@@D	sda18	1703	37248	927544
+@@D	sda19	0	0	0
+@@D	sda20	0	0	0
+@@D	sda21	0	0	0
+@@D	sda22	0	0	0
+@@D	sda23	0	0	0
+@@D	sda24	0	0	0
+@@D	sda25	0	0	0
+@@D	sda26	0	0	0
+@@D	sda27	0	0	0
+@@D	sda28	0	0	0
+@@D	sda29	0	0	0
+@@D	sda30	0	0	0
+@@D	sda31	752905	45451880	0
+@@D	sda32	40749457	1303198280	359023328
+@@D	sdb	5	40	0
+@@D	sdb1	0	0	0
+@@D	sdb2	0	0	0
+@@D	sdb3	0	0	0
+@@D	sdb4	0	0	0
+@@D	sdb5	0	0	0
+@@D	sdc	5	40	0
+@@D	sdc1	0	0	0
+@@D	sdc2	0	0	0
+@@D	sdc3	0	0	0
+@@D	sdc4	0	0	0
+@@D	sdc5	0	0	0
+@@D	sdd	5	40	0
+@@D	sdd1	0	0	0
+@@D	sdd2	0	0	0
+@@D	sdd3	0	0	0
+@@D	sdd4	0	0	0
+@@D	sdd5	0	0	0
+@@D	sde	5397	573040	0
+@@D	sde1	0	0	0
+@@D	sde2	0	0	0
+@@D	sde3	0	0	0
+@@D	sde4	0	0	0
+@@D	sde5	0	0	0
+@@D	sde6	0	0	0
+@@D	sde7	4831	521296	0
+@@D	sde8	9	560	0
+@@D	sde9	0	0	0
+@@D	sde10	0	0	0
+@@D	sde11	0	0	0
+@@D	sde12	535	50336	0
+@@D	sde13	0	0	0
+@@D	sde14	0	0	0
+@@D	sde15	0	0	0
+@@D	sde16	0	0	0
+@@D	sde17	1	256	0
+@@D	sde18	0	0	0
+@@D	sde19	0	0	0
+@@D	sde20	0	0	0
+@@D	sde21	0	0	0
+@@D	sde22	0	0	0
+@@D	sde23	0	0	0
+@@D	sde24	0	0	0
+@@D	sde25	8	456	0
+@@D	sde26	0	0	0
+@@D	sde27	0	0	0
+@@D	sde28	0	0	0
+@@D	sde29	0	0	0
+@@D	sde30	0	0	0
+@@D	sde31	0	0	0
+@@D	sde32	0	0	0
+@@D	sde33	0	0	0
+@@D	sde34	0	0	0
+@@D	sde35	0	0	0
+@@D	sde36	0	0	0
+@@D	sde37	0	0	0
+@@D	sde38	0	0	0
+@@D	sde39	0	0	0
+@@D	sde40	0	0	0
+@@D	sde41	0	0	0
+@@D	sde42	0	0	0
+@@D	sde43	0	0	0
+@@D	sde44	0	0	0
+@@D	sde45	0	0	0
+@@D	sde46	0	0	0
+@@D	sde47	0	0	0
+@@D	sde48	0	0	0
+@@D	sde49	0	0	0
+@@D	sde50	0	0	0
+@@D	sde51	0	0	0
+@@D	sde52	0	0	0
+@@D	sde53	0	0	0
+@@D	sde54	0	0	0
+@@D	sde55	0	0	0
+@@D	sde56	0	0	0
+@@D	sde57	0	0	0
+@@D	sde58	0	0	0
+@@D	sde59	0	0	0
+@@D	sde60	0	0	0
+@@D	sde61	0	0	0
+@@D	sde62	0	0	0
+@@D	sde63	0	0	0
+@@D	sde64	0	0	0
+@@D	sde65	0	0	0
+@@D	sde66	0	0	0
+@@D	sde67	0	0	0
+@@D	sde68	0	0	0
+@@D	sde69	0	0	0
+@@D	sde70	0	0	0
+@@D	sde71	0	0	0
+@@D	sde72	0	0	0
+@@D	sde73	0	0	0
+@@D	sde74	0	0	0
+@@D	sde75	0	0	0
+@@D	sde76	0	0	0
+@@D	sdf	20	12008	4746240
+@@D	sdf1	0	0	0
+@@D	sdf2	0	0	0
+@@D	sdf3	1	32	2375680
+@@D	sdf4	14	11936	2370560
+@@D	sdf5	0	0	0
+@@D	sdf6	0	0	0
+@@D	mtdblock0	0	0	0
+@@V	683029852	182349404
+@@IO	0	35655283026	10616437453
+@@IO	10103	284	698
+@@IO	10158	2725265	480182
+@@IO	10213	300	660
+@@IO	10357	2218230	34929
+@@IO	10268	183	367
+@@IO	10179	284	1062
+@@IO	10323	2653456881	235330167
+@@IO	10234	4316611	117266
+@@IO	10001	247	714
+@@IO	10289	183	494
+@@IO	10200	271288463	354175803
+@@IO	10344	5862165	1051028
+@@IO	10310	292	571
+@@IO	10221	2038097	23937
+@@IO	10276	292	687
+@@IO	10187	247	644
+@@IO	10331	1303553	4328
+@@IO	10009	284	704
+@@IO	10386	68694534	20850541
+@@IO	1037	131883	2667926
+@@IO	10153	1242076	339018
+@@IO	10297	54603337675	2480815577
+@@IO	1092	104484	300400
+@@IO	10208	2599638097	1444073170
+@@IO	1003	411371	2462
+@@IO	10263	247	598
+@@IO	10174	210343	2088
+@@IO	10318	279886224	5632
+@@IO	10229	292	791
+@@IO	10195	247	644
+@@IO	10339	292	963
+@@IO	10017	292	993
+@@IO	10305	1176772	4769
+@@IO	10216	247	581
+@@IO	10127	284	648
+@@IO	10271	391	925
+@@IO	1066	2418030	1559093
+@@IO	10182	1030942	4318
+@@IO	10326	340991	2398
+@@IO	10093	292	1008
+@@IO	10004	292	642
+@@IO	10381	59285132	1024
+@@IO	10148	645901	12037
+@@IO	10203	247	635
+@@IO	10025	247	621
+@@IO	1053	1173963	45300
+@@IO	10313	296452051	10275903
+@@IO	10190	224479	9510
+@@IO	10334	451237	473266
+@@IO	10101	33621	1484
+@@IO	10245	523100957	872138443
+@@IO	10389	2146211	7033
+@@IO	10300	219702	2953
+@@IO	10355	157251368	768
+@@IO	10266	247	679
+@@IO	10033	284	636
+@@IO	10177	247	638
+@@IO	10321	23368902234	7859499530
+@@IO	10232	247	639
+@@IO	9999	10893424	2431485579
+@@IO	1027	32074503	7187950
+@@IO	10287	482936	177910
+@@IO	1082	3208800115	12378171735
+@@IO	10198	71302158	761268
+@@IO	10342	1084296361	485283186
+@@IO	10020	247	666
+@@IO	10397	1644885	18715185
+@@IO	10308	292	933
+@@IO	10219	1524936	208162
+@@IO	10363	247	599
+@@IO	10130	292	701
+@@IO	10274	41084119	4709124
+@@IO	10041	284	1110
+@@IO	10185	212412	2818
+@@IO	10240	292	928
+@@IO	10007	284	684
+@@IO	10151	245561567	235662882
+@@IO	10295	0	0
+@@IO	10206	292	966
+@@IO	1001	320757906	722541878
+@@IO	10117	247	613
+@@IO	10261	922276	6522871
+@@IO	10172	247	703
+@@IO	10316	81123657992	2040566360
+@@IO	10193	224471	9489
+@@IO	10337	80081222	739624
+@@IO	10248	455	961
+@@IO	10358	10679991	1826258
+@@IO	10269	4748772	2915816
+@@IO	10180	0	0
+@@IO	10235	284	985
+@@IO	10379	210295	2062
+@@IO	10290	247	640
+@@IO	10201	247	634
+@@IO	10345	292	963
+@@IO	10400	3871441	1651606
+@@IO	10311	10408614322	521317377
+@@IO	10366	18165520	256
+@@IO	1017	510439845	108601559
+@@IO	1072	226733	208
+@@IO	10188	211814	3901
+@@IO	10332	247	661
+@@IO	10099	247	711
+@@IO	10154	3699100	130747
+@@IO	10298	242015651	41102340
+@@IO	10209	522712	16942
+@@IO	10353	647310528	113161738
+@@IO	10408	701025460	2432
+@@IO	10319	247	646
+@@IO	10230	284	651
+@@IO	10196	292	1015
+@@IO	10395	536552	12298
+@@IO	1046	1024413	63409643
+@@IO	10306	247	646
+@@IO	10361	507378	26470
+@@IO	10272	300	971
+@@IO	10183	916243	3181
+@@IO	10094	284	681
+@@IO	10382	292	842
+@@IO	10149	199242	2382
+@@IO	10293	3378327	60326
+@@IO	10204	8869742	4005930
+@@IO	10348	13069640	512
+@@IO	10259	393410	269231
+@@IO	10026	247	646
+@@IO	10403	17523052	1572466
+@@IO	10314	4092316	256
+@@IO	10225	255	657
+@@IO	10369	247	598
+@@IO	10136	247	623
+@@IO	10280	284	694
+@@IO	10191	780646	103497
+@@IO	10013	292	1033
+@@IO	10390	284	603
+@@IO	1041	357968936	2011563889
+@@IO	10301	255	643
+@@IO	10212	292	981
+@@IO	10356	300	712
+@@IO	10123	247	643
+@@IO	10267	284	952
+@@IO	10322	6749042035	4817201628
+@@IO	10233	247	661
+@@IO	10000	292	622
+@@IO	10377	247	598
+@@IO	10288	284	734
+@@IO	10199	284	632
+@@IO	10343	125616	256
+@@IO	10110	292	641
+@@IO	10021	292	684
+@@IO	10398	292	955
+@@IO	10309	247	591
+@@IO	10220	42654303	16680044
+@@IO	10275	300	965
+@@IO	10186	2550501	245772
+@@IO	10330	4638909099	784369234
+@@IO	10097	284	686
+@@IO	10241	284	638
+@@IO	10008	292	1026
+@@IO	1036	20968607	8726560925
+@@IO	10385	59551448	478719
+@@IO	10296	8990482171	748802255
+@@IO	10207	292	634
+@@IO	1002	43698924	1335980391
+@@IO	10118	284	683
+@@IO	10262	4426586	4105405
+@@IO	10406	16161011	32307348
+@@IO	1110373	0	138
+@@IO	10228	247	661
+@@IO	10372	3599557926	713553254
+@@IO	1023	103676	0
+@@IO	10194	211808	4591
+@@IO	10338	128708694	1556856
+@@IO	10393	99827984	51454120
+@@IO	10304	292	919
+@@IO	10215	1259671	2848
+@@IO	1010	269096209	228692138
+@@IO	10359	20623570	11976364
+@@IO	10270	423170	149595
+@@IO	10181	215023	8029
+@@IO	10325	17371901730	19366644393
+@@IO	10092	284	671
+@@IO	10236	284	1007
+@@IO	10147	255837	2823
+@@IO	10202	247	599
+@@IO	10346	92560	1976
+@@IO	10024	300	991
+@@IO	10401	255	650
+@@IO	10312	594871	21747
+@@IO	10223	292	1007
+@@IO	10367	291383451	168434296
+@@IO	2903	1269284	34403
+@@IO	1073	425544749	46159820
+@@IO	90005	6545845	12727922
+@@IO	10189	131723	1507
+@@IO	10333	247	606
+@@IO	10100	247	618
+@@IO	10244	345696823	37575242
+@@IO	10210	292	652
+@@IO	10354	54397075	28107884
+@@IO	10265	284	644
+@@IO	10176	210351	2425
+@@IO	10231	292	953
+@@IO	10375	184509451	65081162
+@@IO	10142	247	626
+@@IO	10286	29161832812	332437101
+@@IO	1081	103676	56
+@@IO	10197	17475357	4861274
+@@IO	10341	634440	23508
+@@IO	1047	542226355	4876626790
+@@IO	10307	35071024793	7957336759
+@@IO	1013	352339958	37487341
+@@IO	10362	284	962
+@@IO	2000	61085930	8662341
+@@IO	10328	350932	2395
+@@IO	10006	284	634
+@@IO	10150	7305382	46252
+@@IO	10205	487600	76971
+@@IO	10349	3594447724	900800531
+@@IO	1000	53109444284	28489071973
+@@IO	10260	247	693
+@@IO	10315	36817967596	229802101
+@@IO	1021	14824936	179675070
+@@IO	10281	292	987
+@@IO	10192	7334199	7665993
+@@PC	10.50
+@@PI	0.12
+@@P	1	init	S	0	20628	44705	2	1051	0
+@@P	100	watchdogd	S	2	0	0	1	0	10
+@@P	10028	kworker/0:0-events	I	2	0	53	1	0	34459158
+@@P	10037	kworker/u16:1-rmnet_shs_wq	I	2	0	115	1	0	34460003
+@@P	1024	ext4-rsv-conver	I	2	0	0	1	0	2227
+@@P	1025	ext4-rsv-conver	I	2	0	0	1	0	2227
+@@P	1026	kverityd	I	2	0	0	1	0	2227
+@@P	1027	kverityd	I	2	0	0	1	0	2227
+@@P	1028	ext4-rsv-conver	I	2	0	0	1	0	2227
+@@P	1029	kverityd	I	2	0	0	1	0	2227
+@@P	103	kswapd0	S	2	0	109675	1	0	12
+@@P	1030	kverityd	I	2	0	0	1	0	2228
+@@P	1031	ext4-rsv-conver	I	2	0	0	1	0	2229
+@@P	1032	ext4-rsv-conver	I	2	0	0	1	0	2229
+@@P	1033	kverityd	I	2	0	0	1	0	2229
+@@P	1034	ext4-rsv-conver	I	2	0	0	1	0	2230
+@@P	1035	ext4-rsv-conver	I	2	0	0	1	0	2230
+@@P	1036	ext4-rsv-conver	I	2	0	0	1	0	2230
+@@P	1037	kverityd	I	2	0	0	1	0	2230
+@@P	1038	kverityd	I	2	0	0	1	0	2230
+@@P	1039	kverityd	I	2	0	0	1	0	2230
+@@P	1040	kverityd	I	2	0	0	1	0	2230
+@@P	1041	ext4-rsv-conver	I	2	0	0	1	0	2230
+@@P	1042	kverityd	I	2	0	0	1	0	2230
+@@P	1043	kverityd	I	2	0	0	1	0	2231
+@@P	1044	kverityd	I	2	0	0	1	0	2231
+@@P	1045	kverityd	I	2	0	0	1	0	2231
+@@P	10455	com.termux	S	1226	107	105	20	17063	6516
+@@P	1046	kverityd	I	2	0	0	1	0	2231
+@@P	1047	kverityd	I	2	0	0	1	0	2231
+@@P	1048	ext4-rsv-conver	I	2	0	0	1	0	2231
+@@P	1049	kverityd	I	2	0	0	1	0	2231
+@@P	105	erofs_worker/0	S	2	0	781	1	0	13
+@@P	1050	kverityd	I	2	0	0	1	0	2232
+@@P	1051	ext4-rsv-conver	I	2	0	0	1	0	2232
+@@P	1052	kverityd	I	2	0	0	1	0	2232
+@@P	10527	kworker/1:1H-kblockd	I	2	0	0	1	0	34479498
+@@P	1053	kverityd	I	2	0	0	1	0	2232
+@@P	1054	ext4-rsv-conver	I	2	0	0	1	0	2232
+@@P	1055	kverityd	I	2	0	0	1	0	2232
+@@P	1056	kverityd	I	2	0	0	1	0	2232
+@@P	10568	kworker/6:2-events	I	2	0	76	1	0	33881568
+@@P	1057	kverityd	I	2	0	0	1	0	2232
+@@P	1058	kverityd	I	2	0	0	1	0	2232
+@@P	1059	kverityd	I	2	0	0	1	0	2232
+@@P	106	erofs_worker/1	S	2	0	379	1	0	13
+@@P	1061	ext4-rsv-conver	I	2	0	0	1	0	2232
+@@P	1062	ext4-rsv-conver	I	2	0	0	1	0	2232
+@@P	1063	ext4-rsv-conver	I	2	0	0	1	0	2232
+@@P	1064	ext4-rsv-conver	I	2	0	0	1	0	2232
+@@P	1065	ext4-rsv-conver	I	2	0	0	1	0	2233
+@@P	1067	ext4-rsv-conver	I	2	0	0	1	0	2233
+@@P	1068	ext4-rsv-conver	I	2	0	0	1	0	2233
+@@P	1069	ext4-rsv-conver	I	2	0	0	1	0	2233
+@@P	107	erofs_worker/2	S	2	0	462	1	0	13
+@@P	1070	ext4-rsv-conver	I	2	0	0	1	0	2233
+@@P	1071	ext4-rsv-conver	I	2	0	0	1	0	2233
+@@P	1072	ext4-rsv-conver	I	2	0	0	1	0	2233
+@@P	1073	ext4-rsv-conver	I	2	0	0	1	0	2233
+@@P	10735	kworker/0:3-events	I	2	0	30	1	0	34489374
+@@P	1074	ext4-rsv-conver	I	2	0	0	1	0	2234
+@@P	1075	ext4-rsv-conver	I	2	0	0	1	0	2234
+@@P	1076	ext4-rsv-conver	I	2	0	0	1	0	2234
+@@P	1077	ext4-rsv-conver	I	2	0	0	1	0	2234
+@@P	1078	ext4-rsv-conver	I	2	0	0	1	0	2234
+@@P	1079	ext4-rsv-conver	I	2	0	0	1	0	2234
+@@P	108	erofs_worker/3	S	2	0	214	1	0	13
+@@P	1080	ext4-rsv-conver	I	2	0	0	1	0	2236
+@@P	1081	ext4-rsv-conver	I	2	0	0	1	0	2236
+@@P	10859	kworker/u16:2-kgsl_devfreq_wq	I	2	0	114	1	0	34493433
+@@P	109	erofs_worker/4	S	2	0	209	1	0	13
+@@P	11	rcu_tasks_kthread	S	2	0	0	1	0	0
+@@P	110	erofs_worker/5	S	2	0	488	1	0	13
+@@P	11050	kworker/6:0	I	2	0	0	1	0	34501031
+@@P	111	erofs_worker/6	S	2	0	478	1	0	13
+@@P	1115	zn-daemon	S	1	132	716	5	489	2285
+@@P	112	erofs_worker/7	S	2	0	1205	1	0	13
+@@P	113	dmabuf-deferred-free-worker	S	2	0	13669	1	0	14
+@@P	114	uas	I	2	0	0	1	0	14
+@@P	115	dm_bufio_cache	I	2	0	0	1	0	14
+@@P	11531	pig-relay	S	10455	13304	20503	13	10353	9511
+@@P	11561	kworker/1:1-events	I	2	0	171	1	0	34133519
+@@P	11570	kworker/2:2-events	I	2	0	0	1	0	34501476
+@@P	11574	kworker/3:0-sock_diag_events	I	2	0	0	1	0	34501574
+@@P	11575	kworker/3:3-events	I	2	0	10	1	0	34501574
+@@P	11576	kworker/3:4-mm_percpu_wq	I	2	0	0	1	0	34501574
+@@P	116	mld	I	2	0	0	1	0	14
+@@P	11651	kworker/4:2-mm_percpu_wq	I	2	2	0	1	0	34502375
+@@P	11654	ndroid.calendar	S	1226	79	52	87	50202	34502376
+@@P	11677	viders.calendar	S	1226	3	5	14	17766	34502405
+@@P	117	ipv6_addrconf	I	2	0	0	1	0	14
+@@P	1170	at_usb0	I	2	0	0	1	0	2303
+@@P	1171	at_usb1	I	2	0	0	1	0	2303
+@@P	1172	at_usb2	I	2	0	0	1	0	2303
+@@P	1173	qdss	I	2	0	0	1	0	2303
+@@P	1174	qdss_mdm	I	2	0	0	1	0	2303
+@@P	1175	qdss_sw	I	2	0	0	1	0	2303
+@@P	118	krfcommd	S	2	0	0	1	0	15
+@@P	11811	kworker/7:2H-fsverity_read_queue	I	2	0	16	1	0	34134895
+@@P	11849	kworker/5:0H-kblockd	I	2	0	0	1	0	34502888
+@@P	11936	kworker/u16:5-memlat_wq	I	2	0	79	1	0	34505058
+@@P	1199	time_daemon	S	1	18	118	9	523	2312
+@@P	12	rcu_tasks_trace_kthread	S	2	0	0	1	0	0
+@@P	120	irq/15-qcom-scm	S	2	0	0	1	0	40
+@@P	12050	m.linuxwff.ptop	S	1226	122	43	26	34884	34508544
+@@P	12082	sh	S	12050	0	1	1	842	34508565
+@@P	121	gh-watchdog	S	2	3	301	1	0	41
+@@P	12178	kworker/1:0-mm_percpu_wq	I	2	0	0	1	0	34511292
+@@P	122	irq/198-c271000.tsens0	S	2	0	0	1	0	43
+@@P	12205	kworker/7:1H-fsverity_read_queue	I	2	0	0	1	0	34511661
+@@P	12206	kworker/7:3H-fsverity_read_queue	I	2	0	0	1	0	34511661
+@@P	12207	kworker/7:4H	I	2	0	0	1	0	34511661
+@@P	12208	kworker/7:5H-kblockd	I	2	0	0	1	0	34511661
+@@P	12211	ssioncontroller	S	1226	44	20	28	33501	34511664
+@@P	1224	binder:1224_2	S	1	29565	21524	14	1795	2318
+@@P	1225	binder:1225_4	S	1	16888	50976	17	1607	2318
+@@P	1226	main	S	1	210	6430	1	21446	2318
+@@P	12279	kworker/u16:6-memlat_wq	I	2	0	23	1	0	34511839
+@@P	12280	kworker/u16:7-kgsl-lockless-work	I	2	0	0	1	0	34511839
+@@P	123	irq/199-c271000.tsens0	S	2	0	0	1	0	43
+@@P	124	irq/200-c272000.tsens1	S	2	0	0	1	0	44
+@@P	1249	iptables-restor	S	1225	862	2350	1	635	2326
+@@P	125	irq/201-c272000.tsens1	S	2	0	0	1	0	44
+@@P	1250	ip6tables-resto	S	1225	739	1641	1	619	2326
+@@P	12512	kworker/3:0H-kblockd	I	2	0	0	1	0	34515997
+@@P	12513	kworker/4:1H-kblockd	I	2	0	0	1	0	34515998
+@@P	12580	kworker/u16:8-memlat_wq	I	2	0	31	1	0	34516694
+@@P	126	irq/202-c273000.tsens2	S	2	0	0	1	0	44
+@@P	12651	nt.mm:appbrand1	S	1226	448	138	128	147683	34516978
+@@P	12654	nt.mm:appbrand0	S	1226	369	151	155	164448	34516980
+@@P	127	irq/203-c273000.tsens2	S	2	0	0	1	0	44
+@@P	12805	linuxwff.pigapp	S	1226	1429	422	28	41694	34139864
+@@P	1281	ssgtzd	S	1	95	411	92	884	2337
+@@P	12835	kworker/5:2H-kblockd	I	2	0	0	1	0	34139866
+@@P	12836	kworker/5:3H-kblockd	I	2	0	16	1	0	34139866
+@@P	1286	binder:1286_2	S	1	192627	304067	35	2602	2338
+@@P	1287	allocator@1.0-s	S	1	257	573	1	815	2338
+@@P	1288	qccsyshal@1.2-s	S	1	1	11	4	894	2338
+@@P	1290	binder:1290_2	S	1	6097	19767	15	1016	2338
+@@P	1291	cas@1.2-service	S	1	0	0	2	449	2339
+@@P	1292	android.hardwar	S	1	1	7	1	831	2339
+@@P	1297	android.hardwar	S	1	437	4043	5	1017	2340
+@@P	13	ksoftirqd/0	S	2	0	11747	1	0	0
+@@P	1300	binder:1300_2	S	1	3948	4218	23	1657	2340
+@@P	1302	android.hardwar	S	1	1568	9078	1	982	2340
+@@P	1303	android.hardwar	S	1	0	3	9	765	2340
+@@P	1306	android.hardwar	S	1	0	0	1	718	2341
+@@P	1307	android.hardwar	S	1	0	0	1	572	2341
+@@P	1308	android.hardwar	S	1	24	50	1	909	2341
+@@P	1317	glink_adsp	S	2	0	0	1	0	2342
+@@P	1319	android.hardwar	S	1	98605	86927	21	1807	2342
+@@P	1322	thermal@2.0-ser	S	1	2	14	3	575	2343
+@@P	13225	kworker/0:1-events	I	2	0	6	1	0	34519997
+@@P	1325	gadget@1.2-serv	S	1	0	1	2	611	2344
+@@P	1326	usb@1.2-service	S	1	1497	857	2	599	2345
+@@P	13332	kworker/u17:1-qmi_msg_handler	I	2	0	6	1	0	34520504
+@@P	1334	binder:1334_2	S	1	116774	74994	5	1045	2345
+@@P	1338	android.hardwar	S	1	0	2	1	784	2345
+@@P	1341	dolbycodec2	S	1	23	59	12	857	2346
+@@P	1346	glink_cdsp	S	2	0	0	1	0	2346
+@@P	1357	vendor.qti.hard	S	1	332	2109	1	853	2346
+@@P	1359	binder:1359_2	S	1	922	1920	7	1094	2347
+@@P	1360	qconfigservice	S	1	25	67	4	628	2347
+@@P	1363	qesdk-manager	S	1	1	0	4	680	2347
+@@P	1366	vendor.aospa.po	S	1	0	0	1	672	2347
+@@P	1371	vendor.aospa.po	S	1	0	0	1	684	2348
+@@P	1374	dms@2.0-service	S	1	1807	2420	2	969	2348
+@@P	1375	vendor.dolby.me	S	1	17	40	12	904	2348
+@@P	1377	vendor.lineage.	S	1	39	207	1	878	2348
+@@P	138	irq/29-dcvsh-irq-0	S	2	0	0	1	0	46
+@@P	1380	esepowermanager	S	1	0	5	5	796	2349
+@@P	13805	sh	S	21375	0	0	1	760	34523457
+@@P	13809	sh	S	13805	2	3	1	860	34523460
+@@P	1381	capabilityconfi	S	1	0	0	2	324	2349
+@@P	1382	allocator-servi	S	1	1463	6655	4	1378	2349
+@@P	1383	composer-servic	S	1	741761	803892	30	3711	2349
+@@P	1385	dspservice	S	1	0	0	2	517	2350
+@@P	1387	vendor.qti.hard	S	1	0	0	1	698	2350
+@@P	1388	limits@1.2-serv	S	1	0	0	4	546	2351
+@@P	1390	binder:1390_2	S	1	34588	101020	56	2118	2351
+@@P	1395	sensorscalibrat	S	1	0	0	1	561	2351
+@@P	1398	vendor.qti.hard	S	1	3110	3084	1	951	2352
+@@P	1399	soter@1.0-servi	S	1	7	632	5	650	2352
+@@P	14	rcu_preempt	I	2	6	2533	1	0	0
+@@P	140	irq/30-dcvsh-irq-3	S	2	0	0	1	0	46
+@@P	1408	trustedui@1.0-s	S	1	0	1	1	775	2353
+@@P	141	irq/31-dcvsh-irq-7	S	2	0	0	1	0	46
+@@P	142	halt_drain_rqs	S	2	2	559	1	0	46
+@@P	14292	mihomo	S	1	7101	6685	13	2025	13784890
+@@P	1439	vendor.qti.hard	S	1	696	3055	1	973	2354
+@@P	1443	vendor.qti.medi	S	1	75093	114180	13	6485	2354
+@@P	1447	vendor.qti.medi	S	1	21	44	12	791	2354
+@@P	1449	vendor.qti.qspm	S	1	51	76	1	898	2355
+@@P	1450	vendor.qti.secu	S	1	0	10	6	511	2355
+@@P	1454	service@1.0-ser	S	1	0	0	1	586	2355
+@@P	1466	eid@1.0-service	S	1	0	3	5	486	2356
+@@P	1471	displayfeature@	S	1	18474	54001	18	1269	2356
+@@P	1473	micharge@1.0-se	S	1	0	0	3	497	2357
+@@P	1483	vppservice	S	1	1	5	6	775	2358
+@@P	1485	nfc@2.0-service	S	1	79	290	10	927	2358
+@@P	1490	vendor.qti.came	S	1	45753	33272	155	3883	2358
+@@P	1494	fidoca	S	1	0	3	7	527	2359
+@@P	1496	mlipayd@1.1	S	1	2	54	3	611	2359
+@@P	15	rcuog/0	S	2	0	2948	1	0	0
+@@P	150	core_ctl	S	2	0	53	1	0	47
+@@P	1500	mtd@1.3	S	1	2	91	11	942	2360
+@@P	1502	tidad@1.2	S	1	1	3	2	700	2361
+@@P	1504	touchfeature@1.	S	1	0	6	3	401	2361
+@@P	1514	pd-mapper	S	1	26	82	2	606	2361
+@@P	1516	pm-service	S	1	26	166	7	459	2362
+@@P	1517	gmu_f2h	S	2	0	45946	1	0	2362
+@@P	152	gh_rm_recv_task	S	2	0	0	1	0	51
+@@P	1521	audioserver	S	1	345244	306583	33	4288	2362
+@@P	1523	credstore	S	1	0	4	2	901	2363
+@@P	1524	binder:1524_2	S	1	19	41	9	920	2363
+@@P	153	qcom,system-pool-refill-thread	S	2	0	436	1	0	52
+@@P	15306	com.qti.qcc	S	1226	17	18	16	16255	33023204
+@@P	1532	surfaceflinger	S	1	1292696	1051431	20	11887	2363
+@@P	1534	rmt_storage	S	1	56	3587	3	588	2364
+@@P	1535	tftp_server	S	1	47	171	1	586	2364
+@@P	1536	sensors.qti	S	1	0	0	5	426	2364
+@@P	154	mem_buf_trusted_vm_rcvr	S	2	0	0	1	0	53
+@@P	155	bwmon_wq	I	2	0	0	1	0	55
+@@P	156	irq/37-240b6400.qcom,bwmon-llcc	S	2	0	67894	1	0	55
+@@P	157	irq/38-24091000.qcom,bwmon-ddr	S	2	0	29419	1	0	55
+@@P	15811	kworker/7:3-pm	I	2	0	4	1	0	33027684
+@@P	159	qrtr_ns	S	2	0	1005	1	0	58
+@@P	1595	sleep	S	6065	0	0	1	443	32407442
+@@P	16	rcuop/0	S	2	1	8914	1	0	0
+@@P	160	irq/277-qcom,qmp-tme	S	2	0	0	1	0	59
+@@P	161	irq/67-arm-smmu global fault	S	2	0	0	1	0	59
+@@P	162	irq/68-arm-smmu-context-fault	S	2	0	0	1	0	59
+@@P	1623	irq/360-glink-native-cdsp	S	2	0	0	1	0	2377
+@@P	1624	qrtr_rx	S	2	0	0	1	0	2377
+@@P	163	irq/69-arm-smmu-context-fault	S	2	0	0	1	0	59
+@@P	16328	kworker/4:0-mm_percpu_wq	I	2	0	20	1	0	34146048
+@@P	17	rcub/0	S	2	0	20	1	0	0
+@@P	1754	ding:background	S	1226	41	24	53	33952	34401359
+@@P	176	irq/70-arm-smmu-context-fault	S	2	0	0	1	0	60
+@@P	1775	kworker/4:1-events	I	2	0	2	1	0	34401369
+@@P	178	scsi_eh_0	S	2	0	0	1	0	60
+@@P	179	scsi_tmf_0	I	2	0	0	1	0	60
+@@P	18	rcuc/0	S	2	0	0	1	0	0
+@@P	180	irq/251-bcl-lvl0	S	2	0	0	1	0	60
+@@P	181	irq/252-bcl-lvl1	S	2	0	0	1	0	60
+@@P	182	irq/253-bcl-lvl2	S	2	0	0	1	0	60
+@@P	183	irq/260-bcl-lvl0	S	2	0	0	1	0	60
+@@P	184	irq/261-bcl-lvl1	S	2	0	0	1	0	60
+@@P	185	qc_ufs_qos_swq	I	2	0	0	1	0	60
+@@P	186	irq/262-bcl-lvl2	S	2	0	0	1	0	60
+@@P	187	ufs_eh_wq_0	I	2	0	0	1	0	60
+@@P	1877	om.follow.clash	S	1226	234551	339811	114	30947	321827
+@@P	188	ufs_clk_gating_	I	2	0	0	1	0	60
+@@P	189	ufs_clkscaling_	I	2	0	0	1	0	60
+@@P	19	rcu_exp_gp_kthread_worker	S	2	0	471	1	0	0
+@@P	190	nvme-wq	I	2	0	0	1	0	60
+@@P	191	nvme-reset-wq	I	2	0	0	1	0	60
+@@P	19167	com.miwear.ctl	S	1226	10	15	15	17036	34148352
+@@P	192	nvme-delete-wq	I	2	0	0	1	0	60
+@@P	19243	com.hexime.ime	S	1226	243	96	23	30907	34148389
+@@P	1931	irq/361-glink-native-adsp	S	2	0	1252	1	0	2423
+@@P	1932	qrtr_rx	S	2	0	239	1	0	2423
+@@P	1933	pdr_notifier_wq	I	2	0	0	1	0	2424
+@@P	1942	irq/115-arm-smmu-context-fault	S	2	0	0	1	0	2429
+@@P	1947	irq/362-swr_master_irq	S	2	0	2	1	0	2432
+@@P	1948	irq/363-swr_master_irq	S	2	0	0	1	0	2433
+@@P	19733	kworker/3:6H-kblockd	I	2	0	0	1	0	34153750
+@@P	19734	kworker/3:7H-kblockd	I	2	0	18	1	0	34153750
+@@P	19741	kworker/2:0H-kblockd	I	2	0	0	1	0	34153775
+@@P	19744	kworker/6:1H-kverityd	I	2	0	0	1	0	34153785
+@@P	19750	kworker/4:0H-kblockd	I	2	0	0	1	0	34153811
+@@P	1978	irq/375-swr_wake_irq	S	2	0	0	1	0	2437
+@@P	198	f2fs_ckpt-259:1	S	2	4	4	1	0	72
+@@P	199	f2fs_flush-259:1	S	2	0	0	1	0	72
+@@P	19946	.chromecast.app	S	1226	87	53	75	35567	34154931
+@@P	2	kthreadd	S	0	0	247	1	0	0
+@@P	20	rcu_exp_par_gp_kthread_worker	S	2	0	0	1	0	0
+@@P	200	f2fs_discard-259:1	S	2	20	46	1	0	72
+@@P	2003	nsdaemon-zygote	S	1	2	5	1	493	2465
+@@P	2004	system_server	S	1226	1287511	1018727	276	206192	2476
+@@P	201	f2fs_gc-259:1	S	2	4	23	1	0	73
+@@P	2011	 zygisk_lsposed	S	1	50	219	4	586	2477
+@@P	202	kdmflush	I	2	0	0	1	0	73
+@@P	2021	mi_thermald	S	1	3415	29048	121	549	2548
+@@P	203	kdmflush	I	2	0	0	1	0	73
+@@P	204	kdmflush	I	2	0	0	1	0	73
+@@P	205	kdmflush	I	2	0	0	1	0	73
+@@P	20588	kworker/0:2H-kblockd	I	2	0	60	1	0	34168348
+@@P	206	kdmflush	I	2	0	0	1	0	73
+@@P	207	kdmflush	I	2	0	0	1	0	73
+@@P	20784	com.tencent.mm	S	1226	12317	6494	308	229786	34168791
+@@P	208	kdmflush	I	2	0	0	1	0	73
+@@P	20859	ocess.gservices	S	1226	4	8	16	17082	34168834
+@@P	21	migration/0	S	2	0	1802	1	0	0
+@@P	210	init	S	1	3	5	1	622	90
+@@P	211	ueventd	S	1	35369	9021	1	895	92
+@@P	2118	qwesd	S	1	0	0	3	748	2552
+@@P	21328	tencent.mm:push	S	1226	1652	1422	112	94744	34169072
+@@P	21375	pig	S	11531	30250	9216	14	33056	33741771
+@@P	2149	pm-proxy	S	1	0	0	4	493	2555
+@@P	2151	drmserver	S	1	15	41	4	975	2555
+@@P	2152	traced_probes	S	1	81	194	3	484	2555
+@@P	2156	traced	S	1	148	351	2	649	2556
+@@P	21588	runner	S	21375	13939	12366	11	11470	33744716
+@@P	21728	.screenoff.tile	S	1226	6	10	15	16097	34169193
+@@P	2174	tcmd	S	1	1	5	2	935	2558
+@@P	2175	dpmQmiMgr	S	1	80	720	11	881	2558
+@@P	2176	feature_enabler	S	1	0	1	7	856	2558
+@@P	2178	main	S	1	14379	8497	93	4471	2558
+@@P	2179	glink_modem	S	2	0	0	1	0	2558
+@@P	2180	main	S	1	23084	14177	86	3967	2558
+@@P	2181	qmipriod	S	1	1	6	6	204	2559
+@@P	2182	vendor.dpmd	S	1	510	8000	18	1271	2559
+@@P	2189	binder:2189_2	S	1	4118	9709	9	2618	2559
+@@P	2192	binder:2192_2	S	1	0	0	3	820	2560
+@@P	2193	binder:2193_2	S	1	3610	96938	8	1096	2560
+@@P	2194	mediaextractor	S	1	836	794	18	2355	2560
+@@P	2195	mediametrics	S	1	3733	2283	13	2501	2560
+@@P	2196	mediaserver64	S	1	5573	7968	42	8717	2561
+@@P	22	idle_inject/0	S	2	0	0	1	0	0
+@@P	2203	storaged	S	1	391	1769	10	1036	2561
+@@P	2204	wificond	S	1	962	806	2	1123	2561
+@@P	2209	perfservice	S	1	58	93	5	1370	2562
+@@P	2211	wfdhdcphalservi	S	1	0	0	1	466	2562
+@@P	2212	binder:2212_8	S	1	9110	19017	20	1286	2562
+@@P	2216	wifidisplayhals	S	1	0	1	3	529	2563
+@@P	2225	imsdaemon	S	1	147	280	25	848	2564
+@@P	2228	modemManager	S	1	0	1	2	602	2565
+@@P	223	kdmflush	I	2	0	0	1	0	110
+@@P	2232	netmgrd	S	1	878	6660	56	1289	2566
+@@P	2236	port-bridge	S	1	0	2	3	528	2566
+@@P	2237	binder:2237_2	S	1	3936	2141	11	997	2567
+@@P	224	kdmflush	I	2	0	0	1	0	110
+@@P	2241	sensor-notifier	S	1	90	539	4	677	2567
+@@P	2246	adsprpcd	S	1	0	0	4	608	2568
+@@P	2248	cdsprpcd	S	1	0	1	4	632	2568
+@@P	2249	wfdvndservice	S	1	0	0	2	442	2568
+@@P	225	kdmflush	I	2	0	0	1	0	110
+@@P	226	kdmflush	I	2	0	0	1	0	110
+@@P	227	kdmflush	I	2	0	0	1	0	110
+@@P	228	kdmflush	I	2	0	0	1	0	110
+@@P	2288	binder:2288_2	S	1	14315	11923	49	1905	2571
+@@P	229	kdmflush	I	2	0	0	1	0	110
+@@P	2290	cnss-daemon	S	1	1342	2190	4	900	2572
+@@P	2291	mlid	S	1	0	3	3	550	2572
+@@P	2292	loc_launcher	S	1	3	12	3	729	2572
+@@P	22975	kworker/0:3H-fsverity_read_queue	I	2	0	68	1	0	33964882
+@@P	230	kdmflush	I	2	0	0	1	0	110
+@@P	23021	com.mja.reyamf	S	1226	58	76	14	17050	15993897
+@@P	2305	ATFWD-daemon	S	1	0	1	3	792	2574
+@@P	231	kdmflush	I	2	0	0	1	0	110
+@@P	2312	ssgqmigd64	S	1	0	0	1	330	2574
+@@P	2317	citsensorservic	S	1	78088	88992	15	1096	2575
+@@P	2319	gatekeeperd	S	1	1	21	1	920	2575
+@@P	232	kdmflush	I	2	0	0	1	0	110
+@@P	2322	update_engine	S	1	0	2	1	981	2575
+@@P	23263	kworker/6:2H-kblockd	I	2	0	31	1	0	33967218
+@@P	233	kdmflush	I	2	0	0	1	0	110
+@@P	2330	binder:2330_2	S	1	0	0	3	692	2576
+@@P	234	kdmflush	I	2	0	0	1	0	110
+@@P	2342	fingerprint@2.3	S	1	161	16118	10	1016	2577
+@@P	2343	qcc-vendor	S	1	1	7	15	519	2578
+@@P	2344	qcc-trd	S	1	1	1	9	548	2578
+@@P	2346	ipacm	S	1	812	2104	6	772	2578
+@@P	23499	droid.launcher3	S	1226	46010	29270	52	44842	15996062
+@@P	235	kdmflush	I	2	0	0	1	0	110
+@@P	2350	binder:2350_2	S	1	12	58	11	960	2579
+@@P	2353	sxrservice	S	1	0	1	2	905	2579
+@@P	2355	trusteduilisten	S	1	0	0	6	545	2580
+@@P	236	kdmflush	I	2	0	0	1	0	110
+@@P	23632	ter.soterserver	S	1226	41	79	16	14902	15996522
+@@P	237	kdmflush	I	2	0	0	1	0	110
+@@P	2372	displayfeature	S	1	0	1	2	946	2580
+@@P	2374	dtool@1.0-servi	S	1	0	0	1	591	2581
+@@P	2377	communicate@1.0	S	1	0	0	2	555	2581
+@@P	238	kdmflush	I	2	0	0	1	0	110
+@@P	2380	lowi-server	S	2292	1682	2061	6	839	2581
+@@P	2381	xtra-daemon	S	2292	15	44	10	1139	2581
+@@P	2382	provider@2.7-vi	S	1	1	2	4	916	2581
+@@P	2384	irq/299-gf	S	2	0	0	1	0	2582
+@@P	23924	com.qti.phone	S	1226	373	514	26	16102	15997704
+@@P	24	cpuhp/0	S	2	0	0	1	0	0
+@@P	240	kdmflush	I	2	0	0	1	0	110
+@@P	24178	gle.android.gms	S	1226	10424	5649	139	71193	33244488
+@@P	242	kdmflush	I	2	0	0	1	0	110
+@@P	243	kdmflush	I	2	0	0	1	0	110
+@@P	244	kdmflush	I	2	0	0	1	0	110
+@@P	24499	s.messaging:rcs	S	1226	50	38	28	31089	34173198
+@@P	245	kdmflush	I	2	0	0	1	0	110
+@@P	24532	.apps.messaging	S	1226	461	230	66	59644	34173224
+@@P	24594	oadcastreceiver	S	1226	27	26	12	21977	34173683
+@@P	24707	uddrive:channel	S	1226	4000	427	77	32022	34175269
+@@P	2482	qti	S	1	0	1	3	582	2586
+@@P	249	kdmflush	I	2	0	0	1	0	110
+@@P	2499	java	S	1	13338	4441	43	144360	33831524
+@@P	25	cpuhp/1	S	2	0	0	1	0	0
+@@P	250	kdmflush	I	2	0	0	1	0	110
+@@P	2507	daemon	S	1	0	0	1	481	2587
+@@P	252	kdmflush	I	2	0	0	1	0	110
+@@P	2524	supervisor	S	1	0	0	1	366	2588
+@@P	25256	sleep	S	6451	0	0	1	443	32741513
+@@P	2526	adpl	S	1	0	0	3	552	2588
+@@P	2532	main	S	2524	2209	4834	25	17854	2589
+@@P	258	ext4-rsv-conver	I	2	0	0	1	0	112
+@@P	259	ext4-rsv-conver	I	2	0	0	1	0	112
+@@P	26	idle_inject/1	S	2	0	0	1	0	0
+@@P	260	ext4-rsv-conver	I	2	0	0	1	0	112
+@@P	261	ext4-rsv-conver	I	2	0	0	1	0	112
+@@P	26305	earchbox:search	S	1226	216	129	57	52917	34179242
+@@P	265	prng_seeder	S	1	6	23	1	596	119
+@@P	26570	chbox:googleapp	S	1226	118	40	47	43423	34181221
+@@P	27	migration/1	S	2	0	1341	1	0	0
+@@P	2727	main	S	2507	43012	81792	45	16615	2606
+@@P	27403	ndroid.settings	S	1226	105	137	39	44414	34186414
+@@P	27420	roid.apps.turbo	S	1226	9	6	17	17984	34186442
+@@P	27487	hbox:interactor	S	1226	2044	1108	38	25882	23393132
+@@P	2767	kworker/u17:4-ufs_clk_gating_0	I	2	0	168	1	0	34403312
+@@P	28	rcuc/1	S	2	0	0	1	0	0
+@@P	2801	kworker/3:1-sock_diag_events	I	2	0	18	1	0	34403505
+@@P	2815	locationservice	S	1226	1306	80	50	41085	34403532
+@@P	2831	kworker/1:2-events	I	2	0	18	1	0	34403540
+@@P	28608	e.process.gapps	S	1226	6	9	13	18285	34252806
+@@P	28621	.android.chrome	S	1226	843	481	61	93636	34252828
+@@P	29	ksoftirqd/1	S	2	0	7994	1	0	0
+@@P	2979	irq/116-arm-smmu-context-fault	S	2	0	0	1	0	2669
+@@P	2984	usb_bam_wq	I	2	0	0	1	0	2672
+@@P	29852	webview_zygote	S	1226	1	9	1	11764	33366646
+@@P	3	rcu_gp	I	2	0	0	1	0	0
+@@P	30121	kworker/u17:2-qmi_msg_handler	I	2	0	442	1	0	34337774
+@@P	30206	kworker/5:1-mm_percpu_wq	I	2	0	2	1	0	34340172
+@@P	3022	utonavi.minimap	S	1226	221	555	55	46692	34404555
+@@P	30379	kworker/u16:4-memlat_wq	I	2	0	591	1	0	34340593
+@@P	3090	irq/377-glink-native-modem	S	2	0	13	1	0	2698
+@@P	3091	qrtr_rx	S	2	0	169	1	0	2699
+@@P	30969	kworker/2:0-events_power_efficient	I	2	0	71	1	0	34343979
+@@P	31525	kworker/7:0-mm_percpu_wq	I	2	1	40	1	0	33812007
+@@P	31780	kworker/2:2H-kblockd	I	2	0	49	1	0	34055031
+@@P	32	rcuop/1	S	2	1	7259	1	0	0
+@@P	3277	map:pushservice	S	1226	18	18	18	30051	34405532
+@@P	328	audioadsprpcd	S	1	14	72	3	653	124
+@@P	33	cpuhp/2	S	2	0	0	1	0	0
+@@P	34	idle_inject/2	S	2	0	0	1	0	0
+@@P	3404	ts_packager	S	1	6244	13179	10	722	2790
+@@P	3493	ipawq34	I	2	0	0	1	0	2819
+@@P	3494	iparepwq34	I	2	0	0	1	0	2819
+@@P	3495	ipataskletwq34	I	2	0	0	1	0	2819
+@@P	3498	ipawq104	I	2	0	0	1	0	2820
+@@P	3499	iparepwq104	I	2	0	0	1	0	2820
+@@P	35	migration/2	S	2	0	1017	1	0	0
+@@P	3500	ipataskletwq104	I	2	0	0	1	0	2820
+@@P	3501	ipawq120	I	2	0	0	1	0	2820
+@@P	3502	iparepwq120	I	2	0	0	1	0	2820
+@@P	3503	ipataskletwq120	I	2	0	0	1	0	2820
+@@P	3504	ipawq95	I	2	0	0	1	0	2821
+@@P	3505	iparepwq95	I	2	0	0	1	0	2821
+@@P	3506	ipataskletwq95	I	2	0	0	1	0	2821
+@@P	3507	ipafreepagewq95	I	2	0	0	1	0	2821
+@@P	3510	ipawq35	I	2	0	0	1	0	2823
+@@P	3512	iparepwq35	I	2	0	0	1	0	2824
+@@P	3513	ipataskletwq35	I	2	0	0	1	0	2824
+@@P	3517	ipawq105	I	2	0	0	1	0	2825
+@@P	3518	iparepwq105	I	2	0	0	1	0	2825
+@@P	3519	ipataskletwq105	I	2	0	0	1	0	2825
+@@P	3522	ipafreepagewq10	I	2	0	0	1	0	2826
+@@P	3523	ipawq121	I	2	0	0	1	0	2826
+@@P	3525	iparepwq121	I	2	0	0	1	0	2826
+@@P	3527	ipataskletwq121	I	2	0	0	1	0	2826
+@@P	3528	ipafreepagewq12	I	2	0	0	1	0	2826
+@@P	3535	java	S	2499	12837	2868	28	177479	33837301
+@@P	3597	wda_wq	I	2	0	0	1	0	2843
+@@P	36	rcuc/2	S	2	0	0	1	0	0
+@@P	3674	binder:3674_2	S	1	0	0	4	950	3063
+@@P	3675	ims_rtp_daemon	S	1	48	102	9	915	3064
+@@P	37	ksoftirqd/2	S	2	0	24363	1	0	0
+@@P	383	mpcie_wq	I	2	0	0	1	0	125
+@@P	3834	d.chrome_zygote	S	1226	0	8	1	14036	34409254
+@@P	3877	ileged_process0	S	1226	309	229	35	47147	34409265
+@@P	4	slub_flushwq	I	2	0	0	1	0	0
+@@P	40	rcuop/2	S	2	0	4283	1	0	0
+@@P	402	irq/72-arm-smmu-context-fault	S	2	0	0	1	0	125
+@@P	41	cpuhp/3	S	2	0	0	1	0	0
+@@P	42	idle_inject/3	S	2	0	0	1	0	0
+@@P	4201	irq/328-bhi	S	2	0	0	1	0	3630
+@@P	421	irq/193-int_global_int	S	2	0	0	1	0	127
+@@P	4213	4 mipush_zygisk	S	1	38	189	3	621	3649
+@@P	4247	etoolbox_zygisk	S	1	21	147	4	560	3662
+@@P	4281	qrtr_rx	S	2	0	0	1	0	3676
+@@P	4286	scheduler_thread	S	2	0	16948	1	0	3688
+@@P	4287	dp_refill_thread	S	2	0	7966	1	0	3690
+@@P	4288	dp_rx_thread_0	S	2	0	14973	1	0	3690
+@@P	4289	dp_rx_thread_1	S	2	0	15511	1	0	3690
+@@P	4290	dp_rx_thread_2	S	2	0	61928	1	0	3690
+@@P	4291	dp_rx_thread_3	S	2	0	8648	1	0	3690
+@@P	4292	dp_rx_thread_4	S	2	0	20025	1	0	3690
+@@P	4293	dp_rx_thread_5	S	2	0	8450	1	0	3690
+@@P	43	migration/3	S	2	0	684	1	0	0
+@@P	4311	artnerbookmarks	S	1226	1	4	12	16804	34410509
+@@P	4321	droid.bluetooth	S	1226	39097	76488	73	23040	3718
+@@P	4326	rkstack.process	S	1226	16527	28759	40	24480	3722
+@@P	4349	.dataservices	S	1226	205	376	31	15157	3728
+@@P	4364	qtidataservices	S	1226	2360	2854	34	18500	3729
+@@P	4375	xiaomi.settings	S	1226	56	135	16	14332	3730
+@@P	4392	.codeaurora.ims	S	1226	1172	1896	22	16794	3731
+@@P	44	rcuc/3	S	2	0	0	1	0	0
+@@P	4425	com.android.se	S	1226	98	127	14	14395	3732
+@@P	443	rq_stats	I	2	0	0	1	0	129
+@@P	4436	m.android.phone	S	1226	35653	31646	69	27692	3734
+@@P	4459	ndroid.systemui	S	1226	672957	263522	92	73066	3735
+@@P	45	ksoftirqd/3	S	2	0	160	1	0	0
+@@P	450	irq/286-smp2p_2	S	2	2	104	1	0	129
+@@P	451	irq/73-arm-smmu-context-fault	S	2	0	0	1	0	130
+@@P	4534	kworker/u16:3-memlat_wq	I	2	0	377	1	0	34411086
+@@P	4552	id.ext.services	S	1226	49	85	16	14259	3748
+@@P	4601	ocessService0:5	S	3834	924	290	30	50378	34411541
+@@P	4689	gle.android.tts	S	1226	127	38	50	51997	34411744
+@@P	470	adspsleepmon-worker	S	2	3	0	1	0	131
+@@P	471	memlat_wq	I	2	0	0	1	0	131
+@@P	4712	android.smspush	S	1226	29	40	12	13587	3770
+@@P	472	irq/287-smp2p_5	S	2	0	0	1	0	131
+@@P	477	pmic_glink_rx	I	2	0	0	1	0	131
+@@P	48	rcuop/3	S	2	0	5434	1	0	0
+@@P	488	irq/290-smp2p_1	S	2	0	0	1	0	132
+@@P	489	pdr_notifier_wq	I	2	0	0	1	0	132
+@@P	49	cpuhp/4	S	2	0	0	1	0	1
+@@P	490	pmic_glink_rx	I	2	0	0	1	0	132
+@@P	5	netns	I	2	0	0	1	0	0
+@@P	50	idle_inject/4	S	2	0	0	1	0	1
+@@P	51	migration/4	S	2	0	620	1	0	1
+@@P	52	rcuc/4	S	2	0	0	1	0	1
+@@P	53	ksoftirqd/4	S	2	1	124	1	0	1
+@@P	5579	kworker/3:2-sock_diag_events	I	2	0	9	1	0	34439177
+@@P	5595	g.breezyweather	S	1226	30	22	28	28065	34439249
+@@P	56	rcuog/4	S	2	0	1457	1	0	1
+@@P	5660	batterysecret	S	1	186	792	1	689	4575
+@@P	5669	msm_irqbalance	S	1	18087	29680	1	676	4576
+@@P	57	rcuop/4	S	2	0	5475	1	0	1
+@@P	5708	qspmsvc	S	1	2	2	2	746	4580
+@@P	5711	kworker/2:1-events	I	2	0	20	1	0	34439462
+@@P	58	cpuhp/5	S	2	0	0	1	0	1
+@@P	59	idle_inject/5	S	2	0	0	1	0	1
+@@P	594	rimps_wq	I	2	0	0	1	0	142
+@@P	595	irq/259-fifo-empty	S	2	0	231	1	0	143
+@@P	596	irq/293-pmic_pwrkey	S	2	0	27	1	0	151
+@@P	598	irq/41-arm-smmu global fault	S	2	0	0	1	0	152
+@@P	599	irq/296-pmic_resin	S	2	0	1	1	0	152
+@@P	60	migration/5	S	2	0	525	1	0	1
+@@P	600	pdr_notifier_wq	I	2	0	0	1	0	152
+@@P	601	pdr_notifier_wq	I	2	0	0	1	0	152
+@@P	602	irq/74-arm-smmu-context-fault	S	2	0	0	1	0	152
+@@P	6023	alcomm.location	S	1226	255	390	24	15977	4607
+@@P	604	irq/297-pmic_pwrkey_resin_bark	S	2	0	0	1	0	152
+@@P	605	msm_perf:events_notify	S	2	0	0	1	0	152
+@@P	606	irq/298-pmic_pwrkey_bark	S	2	0	0	1	0	153
+@@P	6065	sh	S	1	1	18	1	516	4611
+@@P	607	irq/75-arm-smmu-context-fault	S	2	0	0	1	0	153
+@@P	608	irq/76-arm-smmu-context-fault	S	2	0	0	1	0	153
+@@P	609	irq/271-pmr735d-k-temp-alarm	S	2	0	0	1	0	153
+@@P	61	rcuc/5	S	2	0	0	1	0	1
+@@P	610	irq/77-arm-smmu-context-fault	S	2	0	0	1	0	153
+@@P	611	irq/273-pm8010-m-temp-alarm	S	2	0	0	1	0	154
+@@P	612	smcinvoke_shmbridge_postprocess	S	2	0	0	1	0	154
+@@P	613	smcinvoke_object_postprocess	S	2	0	0	1	0	154
+@@P	614	irq/78-arm-smmu-context-fault	S	2	0	0	1	0	154
+@@P	616	khvcd	S	2	0	0	1	0	155
+@@P	617	irq/79-arm-smmu-context-fault	S	2	0	0	1	0	155
+@@P	6173	irq/325-dwc3	S	2	0	0	1	0	4620
+@@P	618	pdr_notifier_wq	I	2	0	0	1	0	156
+@@P	619	spi0	S	2	0	13407	1	0	156
+@@P	62	ksoftirqd/5	S	2	0	67	1	0	1
+@@P	624	cfg80211	I	2	0	0	1	0	156
+@@P	625	ngd_master	I	2	0	0	1	0	156
+@@P	629	irq/80-arm-smmu-context-fault	S	2	0	0	1	0	156
+@@P	630	irq/301-regulator-ocp	S	2	0	0	1	0	156
+@@P	635	cdsprm-wq	S	2	0	0	1	0	157
+@@P	636	cdsprm-wq-delay	I	2	0	0	1	0	157
+@@P	637	qcrypto_seq_res	I	2	0	0	1	0	158
+@@P	638	irq/81-arm-smmu-context-fault	S	2	0	0	1	0	158
+@@P	639	irq/82-arm-smmu-context-fault	S	2	0	0	1	0	158
+@@P	640	irq/256-flash_all_ramp_up	S	2	0	0	1	0	158
+@@P	641	hwrng	S	2	9	56	1	0	158
+@@P	644	cs35l41_ramp	I	2	0	0	1	0	159
+@@P	6449	sh	S	1	0	0	1	188	338142
+@@P	645	irq/302-cs35l41	S	2	0	0	1	0	159
+@@P	6451	sh	S	1	1	16	1	531	338142
+@@P	647	irq/255-flash_all_ramp_down	S	2	0	0	1	0	160
+@@P	6475	openlist	S	6449	6587	1385	13	4056	338143
+@@P	649	irq/254-flash_fault	S	2	0	0	1	0	160
+@@P	65	rcuop/5	S	2	0	4434	1	0	1
+@@P	651	irq/83-arm-smmu-context-fault	S	2	0	0	1	0	160
+@@P	655	irq/304-q6v5 wdog	S	2	0	0	1	0	160
+@@P	657	irq/84-arm-smmu-context-fault	S	2	0	0	1	0	160
+@@P	658	irq/35-q6v5 wdog	S	2	0	0	1	0	160
+@@P	659	screen_state_wq	I	2	0	0	1	0	160
+@@P	66	cpuhp/6	S	2	0	0	1	0	1
+@@P	661	irq/85-arm-smmu-context-fault	S	2	0	0	1	0	160
+@@P	662	uaudio_svc	I	2	0	0	1	0	161
+@@P	663	irq/86-arm-smmu-context-fault	S	2	0	0	1	0	161
+@@P	664	pm_workq	I	2	0	0	1	0	162
+@@P	6657	rs.media.module	S	1226	12881	16618	64	22027	5378
+@@P	666	batch_workq	I	2	0	0	1	0	162
+@@P	6668	ogle.android.as	S	1226	26423	13633	82	28753	5382
+@@P	667	irq/204-msm-vidc	S	2	0	16419	1	0	162
+@@P	668	irq/87-arm-smmu-context-fault	S	2	0	0	1	0	163
+@@P	67	idle_inject/6	S	2	0	0	1	0	1
+@@P	672	irq/36-q6v5 wdog	S	2	0	0	1	0	163
+@@P	673	irq/88-arm-smmu-context-fault	S	2	0	0	1	0	163
+@@P	6738	pa.dolby.xiaomi	S	1226	5297	3066	17	15988	5402
+@@P	674	irq/89-arm-smmu-context-fault	S	2	0	0	1	0	163
+@@P	6743	ceservicebroker	S	1226	28	34	12	13289	5403
+@@P	676	irq/90-arm-smmu-context-fault	S	2	0	0	1	0	163
+@@P	6767	com.android.nfc	S	1226	613	1028	29	17400	5408
+@@P	677	irq/91-arm-smmu-context-fault	S	2	0	0	1	0	163
+@@P	6794	aa.aidl.manager	S	1226	28	60	18	14000	5418
+@@P	68	migration/6	S	2	0	513	1	0	1
+@@P	680	irq/92-arm-smmu-context-fault	S	2	0	0	1	0	164
+@@P	681	irq/93-arm-smmu-context-fault	S	2	0	0	1	0	164
+@@P	6820	kloadclassifier	S	1226	202	192	15	15453	5423
+@@P	683	logd	S	1	75574	258644	7	1812	164
+@@P	684	irq/94-arm-smmu-context-fault	S	2	0	0	1	0	164
+@@P	687	irq/95-arm-smmu-context-fault	S	2	0	0	1	0	165
+@@P	688	kworker/7:0H-fsverity_read_queue	I	2	0	0	1	0	34400482
+@@P	689	ipa_power_mgmt	I	2	0	0	1	0	166
+@@P	6898	com.xiaomi.xmsf	S	1226	10349	8769	49	28828	5436
+@@P	69	rcuc/6	S	2	0	0	1	0	1
+@@P	690	lmkd	S	1	3180	20820	4	2281	166
+@@P	6911	com.termux.x11	S	1226	151	121	17	15400	5440
+@@P	6931	1mneyyy.dsh_app	S	1226	11106	12270	27	17203	5441
+@@P	695	transport_power	I	2	0	0	1	0	166
+@@P	696	irq/96-arm-smmu-context-fault	S	2	0	0	1	0	166
+@@P	699	page_recycle_st	I	2	0	0	1	0	166
+@@P	70	ksoftirqd/6	S	2	0	64	1	0	1
+@@P	700	irq/257-pm8550b-temp-alarm	S	2	0	0	1	0	166
+@@P	702	irq/97-arm-smmu-context-fault	S	2	0	0	1	0	166
+@@P	703	ipa_pm_activate	I	2	0	0	1	0	166
+@@P	704	servicemanager	S	1	42563	88046	1	917	166
+@@P	705	kgsl-workqueue	I	2	0	0	1	0	167
+@@P	706	hwservicemanage	S	1	4320	2249	1	830	167
+@@P	714	kgsl-lockless-w	I	2	0	0	1	0	167
+@@P	7149	layintegrityfix	S	1	1	16	2	586	5481
+@@P	715	irq/258-pm8550b-temp-alarm-lite	S	2	0	0	1	0	167
+@@P	718	rmnet_ctlwq	I	2	0	0	1	0	167
+@@P	719	vndservicemanag	S	1	7489	7916	1	724	167
+@@P	725	irq/263-pm8550ve-f-temp-alarm	S	2	0	0	1	0	167
+@@P	726	rmnet_llwq	I	2	0	0	1	0	167
+@@P	728	irq/264-pm8550vs-c-temp-alarm	S	2	0	0	1	0	167
+@@P	73	rcuop/6	S	2	0	4254	1	0	1
+@@P	730	irq/265-pm8550vs-d-temp-alarm	S	2	0	0	1	0	168
+@@P	731	irq/98-arm-smmu-context-fault	S	2	0	0	1	0	168
+@@P	732	irq/99-arm-smmu-context-fault	S	2	0	0	1	0	168
+@@P	733	irq/100-arm-smmu-context-fault	S	2	0	0	1	0	168
+@@P	734	irq/266-pm8550vs-e-temp-alarm	S	2	0	0	1	0	168
+@@P	736	irq/101-arm-smmu-context-fault	S	2	0	0	1	0	168
+@@P	738	irq/267-pm8550vs-g-temp-alarm	S	2	0	0	1	0	168
+@@P	739	fmradio	I	2	0	0	1	0	168
+@@P	74	cpuhp/7	S	2	0	0	1	0	1
+@@P	740	irq/250-pm8550-temp-alarm	S	2	0	0	1	0	168
+@@P	742	fmradioscan	I	2	0	0	1	0	169
+@@P	743	fmradiords	I	2	0	0	1	0	169
+@@P	744	android.hardwar	S	1	138	13510	5	1105	170
+@@P	745	qseecomd	S	1	73	755	52	584	170
+@@P	746	qseecom@1.0-ser	S	1	0	0	3	675	170
+@@P	747	binder:747_2	S	1	663	1363	8	1212	171
+@@P	748	psimon	S	2	7	3749	1	0	171
+@@P	749	irq/190-pwr_event_irq	S	2	0	0	1	0	171
+@@P	75	idle_inject/7	S	2	0	0	1	0	1
+@@P	750	irq/321-dp_hs_phy_irq	S	2	0	0	1	0	171
+@@P	751	irq/322-dm_hs_phy_irq	S	2	0	0	1	0	171
+@@P	753	jbd2/sda18-8	S	2	0	77	1	0	171
+@@P	756	ext4-rsv-conver	I	2	0	0	1	0	172
+@@P	758	jbd2/sde12-8	S	2	0	0	1	0	172
+@@P	759	cs35l41	I	2	0	0	1	0	172
+@@P	76	migration/7	S	2	0	113	1	0	1
+@@P	760	ext4-rsv-conver	I	2	0	0	1	0	172
+@@P	762	irq/324-ss_phy_irq	S	2	0	0	1	0	172
+@@P	7621	co.aospa.sense	S	1226	327	498	20	14344	5628
+@@P	764	cs35l41_ramp	I	2	0	0	1	0	173
+@@P	765	irq/323-cs35l41	S	2	0	0	1	0	173
+@@P	766	kdmflush	I	2	0	0	1	0	173
+@@P	7677	sh	S	6898	0	0	1	512	5647
+@@P	7699	kworker/u16:0-kgsl-lockless-work	I	2	0	2897	1	0	33875554
+@@P	77	rcuc/7	S	2	0	0	1	0	1
+@@P	770	cs35l41	I	2	0	0	1	0	180
+@@P	7784	i.xmsf:services	S	1226	1320	1931	22	17470	5674
+@@P	78	ksoftirqd/7	S	2	0	23	1	0	1
+@@P	81	rcuop/7	S	2	0	8689	1	0	1
+@@P	8189	kworker/1:3H-kblockd	I	2	0	50	1	0	34107853
+@@P	8192	kworker/4:2H-kblockd	I	2	0	28	1	0	34107855
+@@P	82	inet_frag_wq	I	2	0	0	1	0	6
+@@P	830	irq/303-fts	S	2	0	58723	1	0	207
+@@P	831	irq/42-arm-smmu-context-fault	S	2	0	0	1	0	211
+@@P	832	k_ipa_usb	I	2	0	0	1	0	211
+@@P	833	irq/43-arm-smmu-context-fault	S	2	0	0	1	0	211
+@@P	834	irq/44-arm-smmu-context-fault	S	2	0	0	1	0	211
+@@P	835	irq/45-arm-smmu-context-fault	S	2	0	0	1	0	211
+@@P	836	kgsl-events	S	2	0	34261	1	0	212
+@@P	839	kgsl_devfreq_wq	I	2	0	0	1	0	213
+@@P	842	irq/102-arm-smmu-context-fault	S	2	0	0	1	0	213
+@@P	845	irq/103-arm-smmu-context-fault	S	2	0	0	1	0	213
+@@P	846	irq/191-msm_cvp	S	2	0	444	1	0	214
+@@P	847	irq/104-arm-smmu-context-fault	S	2	0	0	1	0	214
+@@P	848	msm_cvp_workerq	I	2	0	0	1	0	214
+@@P	849	kgsl_hwsched	S	2	0	131872	1	0	214
+@@P	850	pm_workerq_iris	I	2	0	0	1	0	214
+@@P	851	byte-cntr	I	2	0	0	1	0	214
+@@P	852	irq/105-arm-smmu-context-fault	S	2	0	0	1	0	215
+@@P	853	irq/71-arm-smmu-context-fault	S	2	0	0	1	0	215
+@@P	854	irq/106-arm-smmu-context-fault	S	2	0	0	1	0	215
+@@P	855	irq/107-arm-smmu-context-fault	S	2	0	0	1	0	215
+@@P	856	irq/108-arm-smmu-context-fault	S	2	0	0	1	0	215
+@@P	858	irq/109-arm-smmu-context-fault	S	2	0	0	1	0	215
+@@P	859	cvp-dsp-thread	S	2	0	0	1	0	215
+@@P	860	ipa_usb_wq	I	2	0	0	1	0	215
+@@P	861	spi1	S	2	0	0	1	0	216
+@@P	862	irq/110-arm-smmu-context-fault	S	2	0	0	1	0	216
+@@P	863	irq/111-arm-smmu-context-fault	S	2	0	0	1	0	216
+@@P	864	dsi_post_cmd_tx	I	2	0	0	1	0	216
+@@P	865	irq/112-arm-smmu-context-fault	S	2	0	0	1	0	218
+@@P	866	irq/113-arm-smmu-context-fault	S	2	0	0	1	0	218
+@@P	867	disp_feature:0	S	2	3	127	1	0	218
+@@P	868	disp_lhbm_fod:0	S	2	0	553	1	0	218
+@@P	869	irq/326-esd_err_irq	S	2	0	0	1	0	219
+@@P	870	crtc_commit:165	S	2	0	466937	1	0	219
+@@P	871	crtc_event:165	S	2	0	95581	1	0	219
+@@P	872	crtc_commit:227	S	2	0	43	1	0	219
+@@P	873	crtc_event:227	S	2	0	5	1	0	219
+@@P	874	crtc_commit:236	S	2	0	0	1	0	219
+@@P	875	crtc_event:236	S	2	0	0	1	0	219
+@@P	876	crtc_commit:245	S	2	0	0	1	0	219
+@@P	877	crtc_event:245	S	2	0	0	1	0	219
+@@P	878	crtc_commit:254	S	2	0	0	1	0	219
+@@P	879	crtc_event:254	S	2	0	0	1	0	219
+@@P	880	crtc_commit:263	S	2	0	0	1	0	219
+@@P	881	crtc_event:263	S	2	0	0	1	0	219
+@@P	882	pp_event	S	2	0	15101	1	0	219
+@@P	883	card0-crtc0	S	2	0	6	1	0	219
+@@P	884	card0-crtc1	S	2	0	0	1	0	219
+@@P	885	card0-crtc2	S	2	0	0	1	0	219
+@@P	886	card0-crtc3	S	2	0	0	1	0	219
+@@P	887	card0-crtc4	S	2	0	0	1	0	219
+@@P	888	card0-crtc5	S	2	0	0	1	0	219
+@@P	889	irq/114-arm-smmu-context-fault	S	2	0	0	1	0	220
+@@P	890	cam-cpas	I	2	0	0	1	0	221
+@@P	891	qcom,cam_virtua	I	2	0	0	1	0	221
+@@P	892	rt-cdm0_0	I	2	0	0	1	0	221
+@@P	893	rt-cdm0_1	I	2	0	0	1	0	221
+@@P	894	rt-cdm0_2	I	2	0	0	1	0	221
+@@P	895	rt-cdm0_3	I	2	0	0	1	0	221
+@@P	896	rt-cdm1_0	I	2	0	0	1	0	221
+@@P	897	rt-cdm1_1	I	2	0	0	1	0	221
+@@P	898	rt-cdm1_2	I	2	0	0	1	0	221
+@@P	899	rt-cdm1_3	I	2	0	0	1	0	221
+@@P	9	mm_percpu_wq	I	2	0	0	1	0	0
+@@P	90	kauditd	S	2	0	163	1	0	7
+@@P	900	rt-cdm2_0	I	2	0	0	1	0	221
+@@P	901	rt-cdm2_1	I	2	0	0	1	0	221
+@@P	902	rt-cdm2_2	I	2	0	0	1	0	221
+@@P	903	rt-cdm2_3	I	2	0	0	1	0	221
+@@P	904	rt-cdm3_0	I	2	0	0	1	0	222
+@@P	905	rt-cdm3_1	I	2	0	0	1	0	222
+@@P	906	rt-cdm3_2	I	2	0	0	1	0	222
+@@P	907	rt-cdm3_3	I	2	0	0	1	0	222
+@@P	908	rt-cdm4_0	I	2	0	0	1	0	222
+@@P	909	rt-cdm4_1	I	2	0	0	1	0	222
+@@P	91	khungtaskd	S	2	0	0	1	0	10
+@@P	910	rt-cdm4_2	I	2	0	0	1	0	222
+@@P	911	rt-cdm4_3	I	2	0	0	1	0	222
+@@P	912	cam_cci_wq	I	2	0	0	1	0	222
+@@P	913	cam_cci_wq	I	2	0	0	1	0	222
+@@P	914	cam_cci_wq	I	2	0	0	1	0	222
+@@P	915	cam_cci_wq	I	2	0	0	1	0	222
+@@P	916	cam_cci_wq	I	2	0	0	1	0	222
+@@P	917	cam_cci_wq	I	2	0	0	1	0	223
+@@P	919	cds_recovery_wo	I	2	0	0	1	0	237
+@@P	92	oom_reaper	S	2	0	0	1	0	10
+@@P	920	wlan_logging_thread	S	2	0	14928	1	0	237
+@@P	925	ipa_interrupt_w	I	2	0	0	1	0	241
+@@P	926	ipawq36	I	2	0	0	1	0	241
+@@P	927	iparepwq36	I	2	0	0	1	0	241
+@@P	9270	kworker/5:2-events	I	2	0	29	1	0	34112065
+@@P	928	ipataskletwq36	I	2	0	0	1	0	241
+@@P	929	ipawq33	I	2	0	0	1	0	241
+@@P	93	writeback	I	2	0	0	1	0	10
+@@P	930	iparepwq33	I	2	0	0	1	0	241
+@@P	9307	kworker/6:1-events	I	2	0	0	1	0	34447322
+@@P	931	ipataskletwq33	I	2	0	0	1	0	241
+@@P	9317	kworker/u17:0-qmi_msg_handler	I	2	0	166	1	0	34447342
+@@P	932	ipafreepagewq33	I	2	0	0	1	0	241
+@@P	933	ipawq32	I	2	0	0	1	0	241
+@@P	934	iparepwq32	I	2	0	0	1	0	241
+@@P	935	ipataskletwq32	I	2	0	0	1	0	241
+@@P	936	ipa_uc_holb_wq	I	2	0	0	1	0	241
+@@P	937	clnt_req	I	2	0	0	1	0	241
+@@P	94	kcompactd0	S	2	0	4170	1	0	10
+@@P	943	android.system.	S	1	2800	10877	15	1125	2176
+@@P	944	binder:944_2	S	1	1082	1584	14	2694	2177
+@@P	945	atrace@1.0-serv	S	1	0	0	1	577	2177
+@@P	946	boot@1.2-servic	S	1	0	0	1	546	2177
+@@P	947	gatekeeper@1.0-	S	1	1	122	5	655	2177
+@@P	948	sscrpcd	S	1	2	19	3	670	2177
+@@P	96	kblockd	I	2	0	0	1	0	10
+@@P	97	blkcg_punt_bio	I	2	0	0	1	0	10
+@@P	977	f2fs_ckpt-254:39	S	2	0	12511	1	0	2195
+@@P	978	f2fs_flush-254:39	S	2	0	0	1	0	2195
+@@P	979	f2fs_discard-254:39	S	2	0	3369	1	0	2195
+@@P	98	edac-poller	I	2	0	0	1	0	10
+@@P	980	f2fs_gc-254:39	S	2	0	298	1	0	2204
+@@P	9829	ess:pushservice	S	1226	62	71	19	23476	34449105
+@@P	984	tombstoned	S	1	0	1	1	628	2218
+@@P	99	devfreq_wq	I	2	0	0	1	0	10
+@@T	0	pa	35.0
+@@T	1	pa1	33.1
+@@T	2	bcl_warn	-273000.0
+@@T	3	sdr0_pa	-273000.0
+@@T	4	sdr0	-273000.0
+@@T	5	sdr1_pa	-273000.0
+@@T	6	sdr1	-273000.0
+@@T	7	mmw0	-273000.0
+@@T	8	mmw1	-273000.0
+@@T	9	mmw2	-273000.0
+@@F	0	556800
+@@F	1	556800
+@@F	2	556800
+@@F	3	2592000
+@@F	4	2592000
+@@F	5	2592000
+@@F	6	2592000
+@@F	7	864000
+@@B	76	Discharging	295000	4113000	309
+@@END
