@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -50,29 +52,33 @@ fun NetworkPage(s: Snapshot, mod: Modifier = Modifier) {
             Sparkline(s.netHistory, Modifier.fillMaxWidth().height(52.dp), max = peak)
         }
 
-        Panel("按应用流量", if (s.netReady) "${s.appNet.size} 个" else "未授权") {
+        Panel("按应用流量", if (s.netReady) "${s.appNet.size} 个 · 可滚动" else "未授权") {
             if (!s.netReady) {
                 T("需要「使用情况访问」权限", C.dim, 10.sp, maxLines = 2)
                 Spacer(Modifier.height(4.dp))
                 T("已尝试通过 root 自动授权；若无效请在系统设置中开启。", C.faint, 8.5.sp, maxLines = 3)
             } else {
-                val top = s.appNet.sortedByDescending { it.rxRate + it.txRate }.take(10)
+                val top = s.appNet.sortedByDescending { it.rxRate + it.txRate }
                 val peak = (top.maxOfOrNull { it.rxRate + it.txRate } ?: 1.0).coerceAtLeast(1.0)
-                top.forEach { a ->
-                    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                        T(a.name, C.dim, 9.5.sp, modifier = Modifier.width(84.dp))
-                        Bar(((a.rxRate + a.txRate) / peak).toFloat(), Modifier.weight(1f), 4.dp)
-                        Spacer(Modifier.width(8.dp))
-                        T("↓" + padStart(fmtRate(a.rxRate), 9), C.dim, 8.5.sp)
-                        Spacer(Modifier.width(5.dp))
-                        T("↑" + padStart(fmtRate(a.txRate), 9), C.faint, 8.5.sp)
+                LazyColumn(Modifier.fillMaxWidth().height(300.dp)) {
+                    items(top, key = { it.uid }) { a ->
+                        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                            AppIcon(a.pkg)
+                            Spacer(Modifier.width(6.dp))
+                            T(a.name, C.dim, 9.5.sp, modifier = Modifier.width(76.dp))
+                            Bar(((a.rxRate + a.txRate) / peak).toFloat(), Modifier.weight(1f), 4.dp)
+                            Spacer(Modifier.width(8.dp))
+                            T("↓" + padStart(fmtRate(a.rxRate), 9), C.dim, 8.5.sp)
+                            Spacer(Modifier.width(5.dp))
+                            T("↑" + padStart(fmtRate(a.txRate), 9), C.faint, 8.5.sp)
+                        }
+                        Row(Modifier.fillMaxWidth()) {
+                            Spacer(Modifier.width(22.dp))
+                            T("", C.faint, 8.sp, modifier = Modifier.width(76.dp))
+                            T("累计 ${fmtBytes((a.rxTotal + a.txTotal).toDouble())}   uid ${a.uid}", C.faint, 8.sp)
+                        }
+                        Spacer(Modifier.height(7.dp))
                     }
-                    Spacer(Modifier.height(2.dp))
-                    Row(Modifier.fillMaxWidth()) {
-                        T("", C.faint, 8.sp, modifier = Modifier.width(84.dp))
-                        T("累计 ${fmtBytes((a.rxTotal + a.txTotal).toDouble())}", C.faint, 8.sp)
-                    }
-                    Spacer(Modifier.height(6.dp))
                 }
             }
         }
@@ -134,24 +140,28 @@ fun DiskPage(s: Snapshot, mod: Modifier = Modifier) {
         }
 
         if (s.appIo.isNotEmpty()) {
-            Panel("按应用 IO", "top 10") {
-                val top = s.appIo.sortedByDescending { it.readRate + it.writeRate }.take(10)
+            Panel("按应用 IO", "${s.appIo.size} 个 · 可滚动") {
+                val top = s.appIo.sortedByDescending { it.readRate + it.writeRate }
                 val peak = (top.maxOfOrNull { it.readRate + it.writeRate } ?: 1.0).coerceAtLeast(1.0)
-                top.forEach { a ->
-                    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                        T(a.name, C.dim, 9.5.sp, modifier = Modifier.width(84.dp))
-                        Bar(((a.readRate + a.writeRate) / peak).toFloat(), Modifier.weight(1f), 4.dp)
-                        Spacer(Modifier.width(8.dp))
-                        T("R" + padStart(fmtRate(a.readRate), 9), C.dim, 8.5.sp)
-                        Spacer(Modifier.width(5.dp))
-                        T("W" + padStart(fmtRate(a.writeRate), 9), C.faint, 8.5.sp)
+                LazyColumn(Modifier.fillMaxWidth().height(300.dp)) {
+                    items(top, key = { it.uid }) { a ->
+                        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                            AppIcon(a.pkg)
+                            Spacer(Modifier.width(6.dp))
+                            T(a.name, C.dim, 9.5.sp, modifier = Modifier.width(76.dp))
+                            Bar(((a.readRate + a.writeRate) / peak).toFloat(), Modifier.weight(1f), 4.dp)
+                            Spacer(Modifier.width(8.dp))
+                            T("R" + padStart(fmtRate(a.readRate), 9), C.dim, 8.5.sp)
+                            Spacer(Modifier.width(5.dp))
+                            T("W" + padStart(fmtRate(a.writeRate), 9), C.faint, 8.5.sp)
+                        }
+                        Row(Modifier.fillMaxWidth()) {
+                            Spacer(Modifier.width(22.dp))
+                            T("", C.faint, 8.sp, modifier = Modifier.width(76.dp))
+                            T("累计 R ${fmtBytes(a.readTotal.toDouble())}  W ${fmtBytes(a.writeTotal.toDouble())}", C.faint, 8.sp)
+                        }
+                        Spacer(Modifier.height(7.dp))
                     }
-                    Spacer(Modifier.height(2.dp))
-                    Row(Modifier.fillMaxWidth()) {
-                        T("", C.faint, 8.sp, modifier = Modifier.width(84.dp))
-                        T("累计 R ${fmtBytes(a.readTotal.toDouble())}  W ${fmtBytes(a.writeTotal.toDouble())}", C.faint, 8.sp)
-                    }
-                    Spacer(Modifier.height(6.dp))
                 }
             }
         }

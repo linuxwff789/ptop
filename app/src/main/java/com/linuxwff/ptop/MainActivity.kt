@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -23,7 +25,9 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -44,6 +48,7 @@ import com.linuxwff.ptop.ui.ProcessPage
 import com.linuxwff.ptop.ui.Sparkline
 import com.linuxwff.ptop.ui.T
 import com.linuxwff.ptop.ui.fmtPct
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -79,6 +84,11 @@ fun PtopApp() {
     var tab by remember { mutableStateOf(0) }
     var detail by remember { mutableStateOf<Proc?>(null) }
     var intervalIdx by remember { mutableStateOf(1) }
+    val pagerState = rememberPagerState(initialPage = 0, pageCount = { TABS.size })
+    val scope = rememberCoroutineScope()
+    LaunchedEffect(pagerState) {
+        snapshotFlow { pagerState.currentPage }.collect { tab = it }
+    }
 
     val phase by monitor.phase
     val snap by monitor.snap
@@ -113,17 +123,22 @@ fun PtopApp() {
                     Phase.READY -> {
                         val s = snap
                         if (s == null) Centered("正在读取 /proc…", "")
-                        else when (tab) {
-                            0 -> OverviewPage(s, onProc = { detail = it })
-                            1 -> ProcessPage(s, onProc = { detail = it })
-                            2 -> NetworkPage(s)
-                            else -> DiskPage(s)
+                        else HorizontalPager(
+                            state = pagerState,
+                            modifier = Modifier.fillMaxSize(),
+                        ) { page ->
+                            when (page) {
+                                0 -> OverviewPage(s, onProc = { detail = it })
+                                1 -> ProcessPage(s, onProc = { detail = it })
+                                2 -> NetworkPage(s)
+                                else -> DiskPage(s)
+                            }
                         }
                     }
                 }
             }
 
-            TabBar(tab) { tab = it }
+            TabBar(tab) { i -> scope.launch { pagerState.animateScrollToPage(i) } }
         }
 
         detail?.let { p ->
