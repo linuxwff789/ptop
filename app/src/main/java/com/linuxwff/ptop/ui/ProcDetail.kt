@@ -57,11 +57,11 @@ fun ProcDetail(proc: Proc, totalMem: Long, onClose: () -> Unit, onKilled: () -> 
                         .background(C.ghost)
                         .clickable { onClose() }
                         .padding(horizontal = 10.dp, vertical = 5.dp)
-                ) { T("< back", C.dim, 10.sp) }
+                ) { T("‹ 返回", C.dim, 10.sp) }
                 Spacer(Modifier.width(10.dp))
                 T("PID ${proc.pid}", C.faint, 10.sp)
                 Spacer(Modifier.weight(1f))
-                T("${fds.ifEmpty { "-" }} fds", C.faint, 9.sp)
+                T("${fds.ifEmpty { "-" }} fd", C.faint, 9.sp)
             }
 
             Spacer(Modifier.height(14.dp))
@@ -77,45 +77,45 @@ fun ProcDetail(proc: Proc, totalMem: Long, onClose: () -> Unit, onKilled: () -> 
 
             Spacer(Modifier.height(14.dp))
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(18.dp)) {
-                BigStat("cpu", String.format(Locale.US, "%.1f", proc.cpu) + "%")
-                BigStat("mem", String.format(Locale.US, "%.1f", proc.memBytes.toFloat() / totalMem.coerceAtLeast(1) * 100) + "%")
-                BigStat("rss", fmtBytes(proc.memBytes.toDouble()))
-                BigStat("thr", thrCount.ifEmpty { "${proc.threads}" })
+                BigStat("CPU", String.format(Locale.US, "%.1f", proc.cpu) + "%")
+                BigStat("内存", String.format(Locale.US, "%.1f", proc.memBytes.toFloat() / totalMem.coerceAtLeast(1) * 100) + "%")
+                BigStat("常驻", fmtBytes(proc.memBytes.toDouble()))
+                BigStat("线程", thrCount.ifEmpty { "${proc.threads}" })
             }
 
             Spacer(Modifier.height(16.dp))
             HLine()
             Spacer(Modifier.height(10.dp))
 
-            KV("state", proc.state, vColor = C.dim)
-            KV("ppid", "${proc.ppid}")
-            if (exe.isNotEmpty()) KV("exe", exe)
-            if (cwd.isNotEmpty()) KV("cwd", cwd)
-            KV("utime", "${proc.utime} ticks")
-            KV("stime", "${proc.stime} ticks")
+            KV("状态", proc.state, vColor = C.dim)
+            KV("父进程", "${proc.ppid}")
+            if (exe.isNotEmpty()) KV("路径", exe)
+            if (cwd.isNotEmpty()) KV("工作目录", cwd)
+            KV("用户时间", "${proc.utime} ticks")
+            KV("内核时间", "${proc.stime} ticks")
 
             if (cmd.isNotEmpty() && cmd != proc.comm) {
                 Spacer(Modifier.height(10.dp))
-                T("cmdline", C.faint, 8.5.sp)
+                T("命令行", C.faint, 8.5.sp)
                 Spacer(Modifier.height(3.dp))
                 T(cmd, C.dim, 10.sp, maxLines = 6)
             }
 
             Spacer(Modifier.height(16.dp))
-            T("signal", C.faint, 8.5.sp)
+            T("发送信号", C.faint, 8.5.sp)
             Spacer(Modifier.height(6.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                SigButton("TERM") { confirm = "TERM" }
-                SigButton("KILL", danger = true) { confirm = "KILL" }
-                SigButton("STOP") { confirm = "STOP" }
-                SigButton("CONT") { confirm = "CONT" }
+                SigButton("TERM 终止") { confirm = "TERM" }
+                SigButton("KILL 强杀", danger = true) { confirm = "KILL" }
+                SigButton("STOP 暂停") { confirm = "STOP" }
+                SigButton("CONT 继续") { confirm = "CONT" }
             }
 
             if (status.isNotEmpty()) {
                 Spacer(Modifier.height(16.dp))
                 HLine()
                 Spacer(Modifier.height(10.dp))
-                T("status", C.faint, 8.5.sp)
+                T("状态", C.faint, 8.5.sp)
                 Spacer(Modifier.height(4.dp))
                 status.take(14).forEach { line ->
                     T(line, C.dim, 9.5.sp, maxLines = 2)
@@ -125,7 +125,7 @@ fun ProcDetail(proc: Proc, totalMem: Long, onClose: () -> Unit, onKilled: () -> 
             val threads = sec["THREADS"].orEmpty()
             if (threads.isNotEmpty()) {
                 Spacer(Modifier.height(16.dp))
-                T("threads (${threads.size})", C.faint, 8.5.sp)
+                T("线程 (${threads.size})", C.faint, 8.5.sp)
                 Spacer(Modifier.height(4.dp))
                 threads.take(24).forEach { line ->
                     T(line, C.dim, 9.5.sp)
@@ -135,7 +135,7 @@ fun ProcDetail(proc: Proc, totalMem: Long, onClose: () -> Unit, onKilled: () -> 
             val maps = sec["MAPS"].orEmpty()
             if (maps.isNotEmpty()) {
                 Spacer(Modifier.height(16.dp))
-                T("maps", C.faint, 8.5.sp)
+                T("内存映射", C.faint, 8.5.sp)
                 Spacer(Modifier.height(4.dp))
                 maps.take(12).forEach { line ->
                     T(line, C.faint, 8.5.sp, maxLines = 1)
@@ -159,7 +159,7 @@ fun ProcDetail(proc: Proc, totalMem: Long, onClose: () -> Unit, onKilled: () -> 
                         .background(C.panel)
                         .padding(18.dp)
                 ) {
-                    T("send SIG$sig", C.text, 14.sp, FontWeight.Medium)
+                    T("发送 SIG$sig", C.text, 14.sp, FontWeight.Medium)
                     Spacer(Modifier.height(6.dp))
                     T("pid ${proc.pid} · ${proc.comm}", C.dim, 10.sp)
                     Spacer(Modifier.height(16.dp))
@@ -168,7 +168,7 @@ fun ProcDetail(proc: Proc, totalMem: Long, onClose: () -> Unit, onKilled: () -> 
                             Modifier
                                 .clickable { confirm = null }
                                 .padding(horizontal = 12.dp, vertical = 8.dp)
-                        ) { T("cancel", C.faint, 11.sp) }
+                        ) { T("取消", C.faint, 11.sp) }
                         Spacer(Modifier.width(8.dp))
                         Box(
                             Modifier
@@ -181,7 +181,7 @@ fun ProcDetail(proc: Proc, totalMem: Long, onClose: () -> Unit, onKilled: () -> 
                                     }.start()
                                 }
                                 .padding(horizontal = 14.dp, vertical = 8.dp)
-                        ) { T("confirm", C.bg, 11.sp, FontWeight.Medium) }
+                        ) { T("确认", C.bg, 11.sp, FontWeight.Medium) }
                     }
                 }
             }

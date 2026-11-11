@@ -69,7 +69,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-private val TABS = listOf("over", "proc", "net", "disk")
+private val TABS = listOf("概览", "进程", "网络", "磁盘")
 private val INTERVALS = listOf(1000L, 1500L, 2000L, 3000L, 5000L)
 
 @Composable
@@ -102,17 +102,17 @@ fun PtopApp() {
 
             Box(Modifier.weight(1f).fillMaxWidth()) {
                 when (phase) {
-                    Phase.CHECKING -> Centered("requesting root…", "首次启动会弹出 KernelSU / Magisk 授权框")
+                    Phase.CHECKING -> Centered("正在申请 root…", "首次启动会弹出 KernelSU / Magisk 授权框")
                     Phase.NEED_ROOT -> RootGuide(error) { monitor.requestRootPermission() }
                     Phase.ERROR -> Centered(
-                        "sampling failed",
-                        error.ifEmpty { "unknown error" },
+                        "采样失败",
+                        error.ifEmpty { "未知错误" },
                         actionLabel = "重试",
                         onAction = { monitor.requestRootPermission() },
                     )
                     Phase.READY -> {
                         val s = snap
-                        if (s == null) Centered("waiting for first sample…", "")
+                        if (s == null) Centered("正在读取 /proc…", "")
                         else when (tab) {
                             0 -> OverviewPage(s, onProc = { detail = it })
                             1 -> ProcessPage(s, onProc = { detail = it })
@@ -150,10 +150,10 @@ private fun Header(
     ) {
         T("ptop", C.text, 14.sp, FontWeight.Medium)
         Spacer(Modifier.width(8.dp))
-        T("process monitor", C.faint, 8.5.sp)
+        T("进程监视器", C.faint, 8.5.sp)
         Spacer(Modifier.weight(1f))
         if (snap != null) {
-            T("cpu " + fmtPct(snap.cpuTotal), C.dim, 9.5.sp)
+            T("CPU " + fmtPct(snap.cpuTotal), C.dim, 9.5.sp)
             Spacer(Modifier.width(10.dp))
         }
         Box(
@@ -192,7 +192,7 @@ private fun TabBar(selected: Int, onSelect: (Int) -> Unit) {
                     .padding(vertical = 8.dp),
                 contentAlignment = Alignment.Center,
             ) {
-                T(label, if (on) C.bg else C.faint, 10.sp, if (on) FontWeight.Medium else FontWeight.Normal)
+                T(label, if (on) C.bg else C.dim, 10.sp, if (on) FontWeight.Medium else FontWeight.Normal)
             }
         }
     }

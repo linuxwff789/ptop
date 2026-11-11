@@ -10,10 +10,8 @@ object Parse {
             when {
                 line.startsWith("@@C\t") -> {
                     // "@@C\tcpu  1 2 3 ..."
-                    val rest = line.substring(4).trim()
-                    val f = rest.split(' ')
-                    var i = 0
-                    while (i < f.size && f[i].isEmpty()) i++
+                    val f = line.substring(4).trim().split(' ').filter { it.isNotEmpty() }
+                    val i = 0
                     if (i + 9 > f.size) continue
                     out.cpu.add(
                         CpuTimes(

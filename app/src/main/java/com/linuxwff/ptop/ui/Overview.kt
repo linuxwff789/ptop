@@ -40,12 +40,12 @@ fun OverviewPage(s: Snapshot, onProc: (Proc) -> Unit, mod: Modifier = Modifier) 
 
 @Composable
 private fun CpuPanel(s: Snapshot) {
-    Panel("cpu", "load " + s.load.joinToString(" ") { String.format(java.util.Locale.US, "%.2f", it) }) {
+    Panel("处理器", "负载 " + s.load.joinToString(" ") { String.format(java.util.Locale.US, "%.2f", it) }) {
         Row(verticalAlignment = Alignment.Bottom) {
             T(fmtPct(s.cpuTotal), C.text, 22.sp, FontWeight.Medium)
             Spacer(Modifier.width(7.dp))
             Column {
-                T("${s.coreCount} cores", C.faint, 9.sp)
+                T("${s.coreCount} 核", C.faint, 9.sp)
                 T(
                     s.cores.take(1).joinToString("") { "${it.freqMhz}MHz" },
                     C.faint, 9.sp,
@@ -53,7 +53,7 @@ private fun CpuPanel(s: Snapshot) {
             }
             Spacer(Modifier.weight(1f))
             Column(horizontalAlignment = Alignment.End) {
-                T("psi.cpu ${s.psiCpu.toInt()}%", C.faint, 9.sp)
+                T("PSI ${s.psiCpu.toInt()}%", C.faint, 9.sp)
                 T("io ${s.psiIo.toInt()}%", C.faint, 9.sp)
             }
         }
@@ -79,14 +79,14 @@ private fun CpuPanel(s: Snapshot) {
 
 @Composable
 private fun MemPanel(s: Snapshot) {
-    Panel("mem", "used " + fmtPct(s.mem.usedPct)) {
+    Panel("内存", "已用 " + fmtPct(s.mem.usedPct)) {
         Row(verticalAlignment = Alignment.Bottom) {
             T(fmtKb(s.mem.usedKb), C.text, 18.sp, FontWeight.Medium)
             Spacer(Modifier.width(5.dp))
             T("/ ${fmtKb(s.mem.totalKb)}", C.dim, 10.sp)
             Spacer(Modifier.weight(1f))
             if (s.mem.swapTotalKb > 0) {
-                T("swap ${fmtKb(s.mem.swapUsedKb)}/${fmtKb(s.mem.swapTotalKb)}", C.faint, 9.sp)
+                T("交换 ${fmtKb(s.mem.swapUsedKb)}/${fmtKb(s.mem.swapTotalKb)}", C.faint, 9.sp)
             }
         }
         Spacer(Modifier.height(7.dp))
@@ -97,30 +97,30 @@ private fun MemPanel(s: Snapshot) {
         }
         Spacer(Modifier.height(9.dp))
         Row(Modifier.fillMaxWidth()) {
-            Metric("cached", fmtKb(s.mem.cachedKb), Modifier.weight(1f))
-            Metric("buffers", fmtKb(s.mem.buffersKb), Modifier.weight(1f))
-            Metric("dirty", fmtKb(s.mem.dirtyKb), Modifier.weight(1f))
+            Metric("缓存", fmtKb(s.mem.cachedKb), Modifier.weight(1f))
+            Metric("缓冲", fmtKb(s.mem.buffersKb), Modifier.weight(1f))
+            Metric("脏页", fmtKb(s.mem.dirtyKb), Modifier.weight(1f))
         }
     }
 }
 
 @Composable
 private fun StatPanel(s: Snapshot) {
-    Panel("system", fmtUptime(s.uptime)) {
+    Panel("系统", "运行 " + fmtUptime(s.uptime)) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             val netRx = s.net.sumOf { it.rxRate }
             val netTx = s.net.sumOf { it.txRate }
             val rd = s.disks.sumOf { it.readRate }
             val wr = s.disks.sumOf { it.writeRate }
             Column(Modifier.weight(1f)) {
-                Metric("net down", fmtRate(netRx))
+                Metric("网络 下行", fmtRate(netRx))
                 Spacer(Modifier.height(5.dp))
-                Metric("net up", fmtRate(netTx))
+                Metric("网络 上行", fmtRate(netTx))
             }
             Column(Modifier.weight(1f)) {
-                Metric("disk read", fmtRate(rd))
+                Metric("磁盘 读", fmtRate(rd))
                 Spacer(Modifier.height(5.dp))
-                Metric("disk write", fmtRate(wr))
+                Metric("磁盘 写", fmtRate(wr))
             }
         }
         Spacer(Modifier.height(8.dp))
@@ -128,7 +128,7 @@ private fun StatPanel(s: Snapshot) {
             val batt = s.batt
             val hottest = s.temps.firstOrNull()
             Metric(
-                "battery",
+                "电池",
                 if (batt == null) "-" else "${batt.capacity}% " + when (batt.status) {
                     "Charging" -> "chg"
                     "Discharging" -> "dis"
@@ -137,8 +137,8 @@ private fun StatPanel(s: Snapshot) {
                 },
                 Modifier.weight(1f),
             )
-            Metric("temp", hottest?.let { String.format(java.util.Locale.US, "%.1f°C", it.c) } ?: "-", Modifier.weight(1f))
-            Metric("procs", "${s.procs.size}", Modifier.weight(1f))
+            Metric("温度", hottest?.let { String.format(java.util.Locale.US, "%.1f°C", it.c) } ?: "-", Modifier.weight(1f))
+            Metric("进程", "${s.procs.size}", Modifier.weight(1f))
         }
     }
 }
@@ -154,13 +154,13 @@ private fun Metric(label: String, value: String, mod: Modifier = Modifier) {
 @Composable
 private fun TopPanel(s: Snapshot, onProc: (Proc) -> Unit) {
     val top = s.procs.sortedByDescending { it.cpu }.take(8)
-    Panel("top cpu", "${s.procs.size} procs") {
+    Panel("TOP 进程", "${s.procs.size} 个") {
         Row(Modifier.fillMaxWidth()) {
             T(pad("PID", 7), C.faint, 9.sp)
             T(padStart("CPU%", 5), C.faint, 9.sp)
-            T(padStart("MEM%", 6), C.faint, 9.sp)
+            T(padStart("内存%", 6), C.faint, 9.sp)
             Spacer(Modifier.width(8.dp))
-            T("NAME", C.faint, 9.sp)
+            T("名称", C.faint, 9.sp)
         }
         Spacer(Modifier.height(5.dp))
         top.forEach { p ->

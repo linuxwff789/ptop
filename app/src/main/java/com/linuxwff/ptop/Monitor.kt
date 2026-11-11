@@ -116,7 +116,7 @@ class Monitor(private val ctx: Context) {
         val totalDelta = (totalCpu.total - prevCpuTotal).coerceAtLeast(0)
         val wall = if (prevWall == 0L) 0.0 else (now - prevWall).coerceAtLeast(1).toDouble()
 
-        if (uidPid.isEmpty() || uidAge++ % 20 == 0) {
+        if (uidPid.isEmpty() || uidAge++ % 5 == 0) {
             val fresh = Root.uidMap()
             if (fresh.isNotEmpty()) uidPid = HashMap(fresh)
         }
@@ -132,16 +132,18 @@ class Monitor(private val ctx: Context) {
                 old != null && old[0] == rp.startTime && wall > 0 ->
                     ((ticks - old[1]).coerceAtLeast(0) / (wall / 1000.0 * hz) * 100.0).toFloat()
                 else -> {
-                    val life = (p.uptimeSec * hz - rp.startTime).coerceAtLeast(1.0)
-                    (ticks * ncores * 100.0 / life).toFloat()
+                    val life = p.uptimeSec * hz - rp.startTime
+                    if (life < 50.0) 0f
+                    else (ticks * ncores * 100.0 / life).toFloat().coerceIn(0f, 100f)
                 }
             }
             newTicks[rp.pid] = longArrayOf(rp.startTime, ticks)
             val uid = uidPid[rp.pid] ?: -1
+            val pkgName = if (uid >= 10000) owners.pkg(uid) else null
             procs.add(
                 Proc(
                     pid = rp.pid,
-                    comm = rp.comm.ifBlank { "[${rp.pid}]" },
+                    comm = pkgName ?: rp.comm.ifBlank { "[${rp.pid}]" },
                     state = rp.state,
                     ppid = rp.ppid,
                     utime = rp.utime,
@@ -149,11 +151,11 @@ class Monitor(private val ctx: Context) {
                     threads = rp.threads,
                     rssPages = rp.rssPages,
                     startTime = rp.startTime,
-                    cpu = cpu.coerceIn(0f, 1600f),
+                    cpu = cpu.coerceIn(0f, 800f),
                     memBytes = rp.rssPages * pageSize,
                     uid = uid,
                     user = owners.short(uid),
-                    pkg = if (uid >= 10000) owners.pkg(uid) else null,
+                    pkg = pkgName,
                 )
             )
         }

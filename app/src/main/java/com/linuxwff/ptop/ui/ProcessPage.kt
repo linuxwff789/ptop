@@ -59,7 +59,7 @@ fun ProcessPage(s: Snapshot, onProc: (Proc) -> Unit, mod: Modifier = Modifier) {
             ) {
                 T("> ", C.faint, 11.sp)
                 Box(Modifier.weight(1f)) {
-                    if (query.isEmpty()) T("filter name / pid / user", C.faint, 11.sp)
+                    if (query.isEmpty()) T("搜索名称 / PID / 用户", C.faint, 11.sp)
                     BasicTextField(
                         value = query,
                         onValueChange = { query = it },
@@ -84,7 +84,7 @@ fun ProcessPage(s: Snapshot, onProc: (Proc) -> Unit, mod: Modifier = Modifier) {
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Segmented(
-                options = listOf("cpu", "mem", "pid", "name"),
+                options = listOf("CPU", "内存", "PID", "名称"),
                 selected = sort.ordinal,
                 onSelect = { sort = Sort.entries[it] },
             )
@@ -95,7 +95,7 @@ fun ProcessPage(s: Snapshot, onProc: (Proc) -> Unit, mod: Modifier = Modifier) {
                     .clickable { tree = !tree }
                     .padding(horizontal = 8.dp, vertical = 4.dp)
             ) {
-                T("tree", if (tree) C.bg else C.dim, 10.sp)
+                T("树", if (tree) C.bg else C.dim, 10.sp)
             }
         }
 
@@ -103,12 +103,12 @@ fun ProcessPage(s: Snapshot, onProc: (Proc) -> Unit, mod: Modifier = Modifier) {
 
         Row(Modifier.fillMaxWidth().padding(horizontal = 10.dp, vertical = 3.dp)) {
             T(pad("PID", 7), C.faint, 9.sp, modifier = Modifier.width(46.dp))
-            T(pad("USER", 8), C.faint, 9.sp, modifier = Modifier.width(58.dp))
+            T(pad("用户", 8), C.faint, 9.sp, modifier = Modifier.width(58.dp))
             T(padStart("CPU", 5), C.faint, 9.sp, modifier = Modifier.width(34.dp))
-            T(padStart("MEM", 5), C.faint, 9.sp, modifier = Modifier.width(34.dp))
-            T(padStart("THR", 4), C.faint, 9.sp, modifier = Modifier.width(28.dp))
+            T(padStart("内存", 5), C.faint, 9.sp, modifier = Modifier.width(34.dp))
+            T(padStart("线程", 4), C.faint, 9.sp, modifier = Modifier.width(28.dp))
             Spacer(Modifier.width(6.dp))
-            T("NAME", C.faint, 9.sp)
+            T("名称", C.faint, 9.sp)
         }
         Box(Modifier.fillMaxWidth().height(1.dp).background(C.line))
 
