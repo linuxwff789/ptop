@@ -59,6 +59,7 @@ data class Proc(
     val uid: Int,
     val user: String,
     val pkg: String?,
+    val userApp: Boolean = false,
 )
 
 data class NetIface(

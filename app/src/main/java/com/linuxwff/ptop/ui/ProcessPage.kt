@@ -41,10 +41,11 @@ fun ProcessPage(s: Snapshot, onProc: (Proc) -> Unit, mod: Modifier = Modifier) {
     var query by remember { mutableStateOf("") }
     var sort by remember { mutableStateOf(Sort.CPU) }
     var tree by remember { mutableStateOf(false) }
+    var userOnly by remember { mutableStateOf(false) }
 
     val totalMem = (s.mem.totalKb * 1024).coerceAtLeast(1)
-    val rows = remember(s.procs, query, sort, tree) {
-        buildRows(s.procs, query.trim(), sort, tree)
+    val rows = remember(s.procs, query, sort, tree, userOnly) {
+        buildRows(s.procs, query.trim(), sort, tree, userOnly)
     }
 
     Column(mod.fillMaxSize()) {
@@ -91,6 +92,15 @@ fun ProcessPage(s: Snapshot, onProc: (Proc) -> Unit, mod: Modifier = Modifier) {
                 onSelect = { sort = Sort.entries[it] },
             )
             Spacer(Modifier.weight(1f))
+            Box(
+                Modifier
+                    .background(if (userOnly) C.text else C.ghost)
+                    .clickable { userOnly = !userOnly }
+                    .padding(horizontal = 8.dp, vertical = 4.dp)
+            ) {
+                T("仅用户", if (userOnly) C.bg else C.dim, 10.sp)
+            }
+            Spacer(Modifier.width(6.dp))
             Box(
                 Modifier
                     .background(if (tree) C.text else C.ghost)
@@ -182,8 +192,15 @@ private fun TreeLines(meta: TreeMeta) {
     }
 }
 
-private fun buildRows(all: List<Proc>, q: String, sort: Sort, tree: Boolean): List<PRow> {
-    val filtered = if (q.isEmpty()) all else all.filter {
+private fun buildRows(
+    all: List<Proc>,
+    q: String,
+    sort: Sort,
+    tree: Boolean,
+    userOnly: Boolean,
+): List<PRow> {
+    val base = if (userOnly) all.filter { it.userApp } else all
+    val filtered = if (q.isEmpty()) base else base.filter {
         it.comm.contains(q, true) || it.pid.toString().contains(q) ||
             it.user.contains(q, true) || (it.pkg?.contains(q, true) == true)
     }

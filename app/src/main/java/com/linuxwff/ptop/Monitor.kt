@@ -12,12 +12,23 @@ class Owners(private val ctx: Context) {
     private val pm = ctx.packageManager
     private val pkgs = HashMap<Int, String?>()
     private val short = HashMap<Int, String>()
+    private val thirdParty = HashMap<String, Boolean>()
 
     fun pkg(uid: Int): String? = pkgs.getOrPut(uid) {
         runCatching {
             @Suppress("DEPRECATION")
             pm.getPackagesForUid(uid)?.minByOrNull { it.length }
         }.getOrNull()
+    }
+
+    fun isUserApp(pkg: String?): Boolean {
+        if (pkg == null) return false
+        return thirdParty.getOrPut(pkg) {
+            runCatching {
+                val flags = pm.getApplicationInfo(pkg, 0).flags
+                (flags and android.content.pm.ApplicationInfo.FLAG_SYSTEM) == 0
+            }.getOrDefault(false)
+        }
     }
 
     fun short(uid: Int): String = short.getOrPut(uid) {
@@ -181,6 +192,7 @@ class Monitor(private val ctx: Context) {
                     uid = uid,
                     user = owners.short(uid),
                     pkg = pkgName,
+                    userApp = owners.isUserApp(pkgName),
                 )
             )
         }
