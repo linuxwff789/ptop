@@ -57,6 +57,9 @@ private fun CpuPanel(s: Snapshot) {
                 T("io ${s.psiIo.toInt()}%", C.faint, 9.sp)
             }
         }
+        if (s.cores.isNotEmpty()) {
+            android.util.Log.d("ptop-ui", "n=${s.cores.size} first=${s.cores[0].idx}/${s.cores[0].pct} last=${s.cores.last().idx}/${s.cores.last().pct}")
+        }
         Spacer(Modifier.height(6.dp))
         Sparkline(s.history, Modifier.fillMaxWidth().height(46.dp))
         Spacer(Modifier.height(9.dp))
