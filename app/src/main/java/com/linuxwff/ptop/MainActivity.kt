@@ -86,7 +86,7 @@ fun PtopApp() {
 
     val lifecycle = LocalLifecycleOwner.current
     LaunchedEffect(lifecycle) {
-        lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+        lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
             monitor.sampleLoop { INTERVALS[intervalIdx] }
         }
     }

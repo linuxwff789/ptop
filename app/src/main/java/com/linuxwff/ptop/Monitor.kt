@@ -70,6 +70,7 @@ class Monitor(private val ctx: Context) {
     private val hz = 100.0
     private val pageSize = 4096L
     private var lastGood = 0L
+    private var frame = 0
 
     suspend fun sampleLoop(interval: () -> Long) {
         while (currentCoroutineContext().isActive) {
@@ -214,6 +215,10 @@ class Monitor(private val ctx: Context) {
         ioHist.addLast(disks.sumOf { it.readRate + it.writeRate }.toFloat())
         while (ioHist.size > 60) ioHist.removeFirst()
 
+        frame++
+        if (frame % 5 == 0) {
+            android.util.Log.d("ptop", "n=${coreList.size} cores=" + coreList.joinToString(" ") { String.format(java.util.Locale.US, "%.0f", it.pct * 100) })
+        }
         snap.value = Snapshot(
             ts = System.currentTimeMillis(),
             cpuTotal = cpuShown,
