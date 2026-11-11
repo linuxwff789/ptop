@@ -108,7 +108,7 @@ fun ProcessPage(s: Snapshot, onProc: (Proc) -> Unit, mod: Modifier = Modifier) {
             T(pad("用户", 8), C.faint, 9.sp, modifier = Modifier.width(58.dp))
             T(padStart("CPU", 5), C.faint, 9.sp, modifier = Modifier.width(34.dp))
             T(padStart("内存", 5), C.faint, 9.sp, modifier = Modifier.width(34.dp))
-            T(padStart("线程", 4), C.faint, 9.sp, modifier = Modifier.width(28.dp))
+            T(padStart("线程", 4), C.faint, 9.sp, modifier = Modifier.width(34.dp))
             Spacer(Modifier.width(6.dp))
             T("名称", C.faint, 9.sp)
         }
@@ -141,7 +141,7 @@ fun ProcessPage(s: Snapshot, onProc: (Proc) -> Unit, mod: Modifier = Modifier) {
                         padStart(String.format(Locale.US, "%.1f", p.memBytes.toFloat() / totalMem * 100), 5),
                         C.dim, 9.5.sp, modifier = Modifier.width(34.dp),
                     )
-                    T(padStart("${p.threads}", 4), C.faint, 9.5.sp, modifier = Modifier.width(28.dp))
+                    T(padStart("${p.threads}", 4), C.faint, 9.5.sp, modifier = Modifier.width(34.dp))
                     Spacer(Modifier.width(6.dp))
                     row.tree?.let { TreeLines(it) }
                     AppIcon(p.pkg, 14.dp)

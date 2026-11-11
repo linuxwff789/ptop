@@ -55,7 +55,10 @@ class MonitorService : Service() {
         requested = false
         runCatching { wake?.release() }
         wake = null
-        (application as PtopApplication).monitor.stop()
+        // If the user came back to the app and then stopped the notification,
+        // keep sampling while the UI is visible.
+        val app = application as PtopApplication
+        if (app.visible == 0) app.monitor.stop()
         super.onDestroy()
     }
 
