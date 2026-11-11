@@ -216,8 +216,13 @@ class Monitor(private val ctx: Context) {
         while (ioHist.size > 60) ioHist.removeFirst()
 
         frame++
-        if (frame % 5 == 0) {
-            android.util.Log.d("ptop", "n=${coreList.size} cores=" + coreList.joinToString(" ") { String.format(java.util.Locale.US, "%.0f", it.pct * 100) })
+        if (frame % 3 == 1) {
+            runCatching {
+                java.io.File(ctx.filesDir, "diag.log").appendText(
+                    "${System.currentTimeMillis()} n=${coreList.size} " +
+                        coreList.joinToString(" ") { String.format(java.util.Locale.US, "%.0f", it.pct * 100) } + "\n"
+                )
+            }
         }
         snap.value = Snapshot(
             ts = System.currentTimeMillis(),
