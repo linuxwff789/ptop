@@ -1,5 +1,6 @@
 package com.linuxwff.ptop.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -36,6 +38,7 @@ fun ProcDetail(proc: Proc, totalMem: Long, onClose: () -> Unit, onKilled: () -> 
     var raw by remember(proc.pid) { mutableStateOf<String?>(null) }
     var confirm by remember(proc.pid) { mutableStateOf<String?>(null) }
     var nonce by remember(proc.pid) { mutableStateOf(0) }
+    BackHandler { onClose() }
 
     LaunchedEffect(proc.pid, nonce) {
         raw = withContext(Dispatchers.IO) { Root.detail(proc.pid) }
@@ -135,10 +138,21 @@ fun ProcDetail(proc: Proc, totalMem: Long, onClose: () -> Unit, onKilled: () -> 
             val maps = sec["MAPS"].orEmpty()
             if (maps.isNotEmpty()) {
                 Spacer(Modifier.height(16.dp))
-                T("内存映射", C.faint, 8.5.sp)
+                T("内存映射 (${maps.size}) · 可上下左右滑动", C.faint, 8.5.sp)
                 Spacer(Modifier.height(4.dp))
-                maps.take(12).forEach { line ->
-                    T(line, C.faint, 8.5.sp, maxLines = 1)
+                Box(
+                    Modifier
+                        .fillMaxWidth()
+                        .height(300.dp)
+                        .background(C.ghost.copy(alpha = 0.35f))
+                        .horizontalScroll(rememberScrollState())
+                        .verticalScroll(rememberScrollState())
+                ) {
+                    Column(Modifier.padding(6.dp)) {
+                        maps.forEach { line ->
+                            T(line, C.faint, 8.sp, maxLines = 1, softWrap = false)
+                        }
+                    }
                 }
             }
             Spacer(Modifier.height(40.dp))

@@ -1,8 +1,14 @@
 package com.linuxwff.ptop
 
+import android.app.Activity
+import android.content.Context
+import android.content.ContextWrapper
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.pager.HorizontalPager
@@ -31,13 +37,10 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.repeatOnLifecycle
 import com.linuxwff.ptop.ui.C
 import com.linuxwff.ptop.ui.DiskPage
 import com.linuxwff.ptop.ui.NetworkPage
@@ -65,11 +68,23 @@ class MainActivity : ComponentActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             w.isNavigationBarContrastEnforced = false
         }
-        setContent { PtopApp() }
+        setContent { AppRoot() }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        (application as PtopApplication).monitor.start()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (!MonitorService.running && !MonitorService.requested) {
+            (application as PtopApplication).monitor.stop()
+        }
     }
 
     override fun onDestroy() {
-        Root.close()
+        if (!MonitorService.running && !MonitorService.requested) Root.close()
         super.onDestroy()
     }
 }
@@ -78,9 +93,10 @@ private val TABS = listOf("概览", "进程", "网络", "磁盘")
 private val INTERVALS = listOf(1000L, 1500L, 2000L, 3000L, 5000L)
 
 @Composable
-fun PtopApp() {
+fun AppRoot() {
     val ctx = LocalContext.current
-    val monitor = remember { Monitor(ctx) }
+    val activity = ctx.findActivity()
+    val monitor = (ctx.applicationContext as PtopApplication).monitor
     var tab by remember { mutableStateOf(0) }
     var detail by remember { mutableStateOf<Proc?>(null) }
     var intervalIdx by remember { mutableStateOf(1) }
@@ -94,12 +110,11 @@ fun PtopApp() {
     val snap by monitor.snap
     val error by monitor.error
 
-    val lifecycle = LocalLifecycleOwner.current
-    LaunchedEffect(lifecycle) {
-        lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-            monitor.sampleLoop { INTERVALS[intervalIdx] }
-        }
-    }
+    LaunchedEffect(intervalIdx) { monitor.intervalMs = INTERVALS[intervalIdx] }
+
+
+    var showExit by remember { mutableStateOf(false) }
+    BackHandler(enabled = detail == null && !showExit) { showExit = true }
 
     Box(Modifier.fillMaxSize().background(C.bg)) {
         Column(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()) {
@@ -139,6 +154,37 @@ fun PtopApp() {
             }
 
             TabBar(tab) { i -> scope.launch { pagerState.animateScrollToPage(i) } }
+        }
+
+        if (showExit) {
+            ExitSheet(
+                onCancel = { showExit = false },
+                onExit = {
+                    showExit = false
+                    activity?.finish()
+                },
+                onBackground = {
+                    showExit = false
+                    MonitorService.requested = true
+                    activity?.let { act ->
+                        if (Build.VERSION.SDK_INT >= 33 &&
+                            act.checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) !=
+                            PackageManager.PERMISSION_GRANTED
+                        ) {
+                            act.requestPermissions(
+                                arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 41
+                            )
+                        }
+                        val svc = Intent(act, MonitorService::class.java)
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            act.startForegroundService(svc)
+                        } else {
+                            act.startService(svc)
+                        }
+                        act.moveTaskToBack(true)
+                    }
+                },
+            )
         }
 
         detail?.let { p ->
@@ -267,6 +313,58 @@ private fun RootGuide(error: String, onRetry: () -> Unit) {
                 .padding(horizontal = 18.dp, vertical = 10.dp)
         ) {
             T("申请 root 权限", C.bg, 11.sp, FontWeight.Medium)
+        }
+    }
+}
+
+private fun Context.findActivity(): Activity? {
+    var c: Context = this
+    while (c is ContextWrapper) {
+        if (c is Activity) return c
+        c = c.baseContext
+    }
+    return null
+}
+
+@Composable
+private fun ExitSheet(onCancel: () -> Unit, onExit: () -> Unit, onBackground: () -> Unit) {
+    Box(
+        Modifier.fillMaxSize().background(C.bg.copy(alpha = 0.92f)).clickable { onCancel() },
+        contentAlignment = Alignment.Center,
+    ) {
+        Column(
+            Modifier
+                .fillMaxWidth(0.86f)
+                .background(C.panel)
+                .clickable { }
+                .padding(20.dp)
+        ) {
+            T("退出 ptop？", C.text, 15.sp, FontWeight.Medium)
+            Spacer(Modifier.height(8.dp))
+            T("「后台运行」会持有唤醒锁继续采样，可在通知栏随时停止。", C.faint, 9.5.sp, maxLines = 3)
+            Spacer(Modifier.height(18.dp))
+            Choice("直接退出", "结束进程，不再采样", onExit)
+            Spacer(Modifier.height(8.dp))
+            Choice("后台运行", "唤醒锁保活，继续刷新", onBackground)
+            Spacer(Modifier.height(8.dp))
+            Choice("取消", "", onCancel)
+        }
+    }
+}
+
+@Composable
+private fun Choice(title: String, sub: String, onClick: () -> Unit) {
+    Column(
+        Modifier
+            .fillMaxWidth()
+            .background(C.ghost)
+            .clickable { onClick() }
+            .padding(horizontal = 14.dp, vertical = 10.dp)
+    ) {
+        T(title, C.text, 12.sp)
+        if (sub.isNotEmpty()) {
+            Spacer(Modifier.height(2.dp))
+            T(sub, C.faint, 9.sp)
         }
     }
 }

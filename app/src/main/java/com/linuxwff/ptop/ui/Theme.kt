@@ -45,6 +45,7 @@ fun T(
     modifier: Modifier = Modifier,
     maxLines: Int = 1,
     overflow: TextOverflow = TextOverflow.Ellipsis,
+    softWrap: Boolean = true,
 ) {
     BasicText(
         text = text,
@@ -52,6 +53,7 @@ fun T(
         style = base.copy(color = color, fontSize = size, fontWeight = weight),
         maxLines = maxLines,
         overflow = overflow,
+        softWrap = softWrap,
     )
 }
 

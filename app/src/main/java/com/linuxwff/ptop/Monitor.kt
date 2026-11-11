@@ -4,11 +4,6 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.os.SystemClock
 import androidx.compose.runtime.mutableStateOf
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.currentCoroutineContext
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.isActive
-import kotlinx.coroutines.withContext
 
 enum class Phase { CHECKING, NEED_ROOT, READY, ERROR }
 
@@ -76,13 +71,38 @@ class Monitor(private val ctx: Context) {
     private val pageSize = 4096L
     private var lastGood = 0L
 
-    suspend fun sampleLoop(interval: () -> Long) {
-        while (currentCoroutineContext().isActive) {
-            val t0 = SystemClock.elapsedRealtime()
-            withContext(Dispatchers.IO) { runCatching { tick() }.onFailure { error.value = it.message ?: "tick" } }
-            val rest = interval() - (SystemClock.elapsedRealtime() - t0)
-            if (rest > 0) delay(rest)
+    @Volatile private var running = false
+    private var worker: Thread? = null
+
+    /** Idempotent: the UI and the background service both call this. */
+    @Synchronized
+    fun start() {
+        if (running) return
+        running = true
+        worker = Thread({
+            while (running) {
+                val t0 = SystemClock.elapsedRealtime()
+                runCatching { tick() }.onFailure { error.value = it.message ?: "tick failed" }
+                val rest = intervalMs - (SystemClock.elapsedRealtime() - t0)
+                if (rest > 0) {
+                    try {
+                        Thread.sleep(rest)
+                    } catch (e: InterruptedException) {
+                        break
+                    }
+                }
+            }
+        }, "ptop-sampler").apply {
+            isDaemon = true
+            start()
         }
+    }
+
+    @Synchronized
+    fun stop() {
+        running = false
+        worker?.interrupt()
+        worker = null
     }
 
     fun requestRootPermission() {

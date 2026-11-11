@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# ptop-snap v2
+# ptop-snap v3
 # ptop snapshot — single awk process reads /proc and sysfs.
 # Field separator: TAB. Sections: @@X. Terminator: @@END.
 export LC_ALL=C

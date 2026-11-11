@@ -1,4 +1,5 @@
 #!/system/bin/sh
+# ptop-detail v2
 # Per-process detail page. Usage: ptop_detail.sh PID
 export LC_ALL=C
 P=/proc/$1
@@ -23,7 +24,7 @@ grep -E '^(Name|State|Tgid|Pid|PPid|Uid|Gid|Threads|VmPeak|VmSize|VmRSS|VmSwap|v
 echo "@@SIG"
 grep -E '^(SigQ|SigPnd|ShdPnd|SigBlk|SigIgn|SigCgt):' "$P/status" 2>/dev/null
 echo "@@MAPS"
-head -24 "$P/maps" 2>/dev/null
+head -200 "$P/maps" 2>/dev/null
 echo "@@THREADS"
 i=0
 for t in "$P"/task/*; do

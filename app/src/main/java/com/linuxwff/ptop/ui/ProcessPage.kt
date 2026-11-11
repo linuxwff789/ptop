@@ -1,5 +1,6 @@
 package com.linuxwff.ptop.ui
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -23,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -141,14 +143,44 @@ fun ProcessPage(s: Snapshot, onProc: (Proc) -> Unit, mod: Modifier = Modifier) {
                     )
                     T(padStart("${p.threads}", 4), C.faint, 9.5.sp, modifier = Modifier.width(28.dp))
                     Spacer(Modifier.width(6.dp))
-                    T(row.label + p.comm, C.dim, 9.5.sp, modifier = Modifier.weight(1f))
+                    row.tree?.let { TreeLines(it) }
+                    AppIcon(p.pkg, 14.dp)
+                    Spacer(Modifier.width(4.dp))
+                    T(p.comm, C.dim, 9.5.sp, modifier = Modifier.weight(1f))
                 }
             }
         }
     }
 }
 
-private class PRow(val proc: Proc, val label: String)
+private class PRow(val proc: Proc, val tree: TreeMeta?)
+
+/** depth, whether this node is the last child, and per-ancestor "still has siblings". */
+private class TreeMeta(val depth: Int, val isLast: Boolean, val flags: List<Boolean>)
+
+/** Draws tree guides with real lines instead of ├ / └ glyphs. */
+@Composable
+private fun TreeLines(meta: TreeMeta) {
+    val step = 11.dp
+    Box(Modifier.width((step * meta.depth).coerceAtLeast(0.dp)).height(16.dp)) {
+        Canvas(Modifier.fillMaxSize()) {
+            val w = step.toPx()
+            val h = size.height
+            val stroke = 1.dp.toPx()
+            for (level in 0 until meta.depth - 1) {
+                if (meta.flags.getOrElse(level) { false }) {
+                    val x = level * w + w / 2
+                    drawLine(C.lineHi, Offset(x, 0f), Offset(x, h), stroke)
+                }
+            }
+            if (meta.depth > 0) {
+                val x = (meta.depth - 1) * w + w / 2
+                drawLine(C.lineHi, Offset(x, 0f), Offset(x, if (meta.isLast) h / 2 else h), stroke)
+                drawLine(C.lineHi, Offset(x, h / 2), Offset(x + w / 2, h / 2), stroke)
+            }
+        }
+    }
+}
 
 private fun buildRows(all: List<Proc>, q: String, sort: Sort, tree: Boolean): List<PRow> {
     val filtered = if (q.isEmpty()) all else all.filter {
@@ -162,7 +194,7 @@ private fun buildRows(all: List<Proc>, q: String, sort: Sort, tree: Boolean): Li
         Sort.NAME -> compareBy<Proc> { it.comm.lowercase() }
     }
     val sorted = filtered.sortedWith(cmp)
-    if (!tree) return sorted.map { PRow(it, "") }
+    if (!tree) return sorted.map { PRow(it, null) }
 
     val byPid = sorted.associateBy { it.pid }
     val children = sorted.groupBy { it.ppid }
@@ -170,17 +202,15 @@ private fun buildRows(all: List<Proc>, q: String, sort: Sort, tree: Boolean): Li
     val out = ArrayList<PRow>(sorted.size)
     val seen = HashSet<Int>(sorted.size * 2)
 
-    fun walk(p: Proc, prefix: String, last: Boolean, depth: Int) {
+    fun walk(p: Proc, depth: Int, isLast: Boolean, flags: List<Boolean>) {
         if (depth > 14 || !seen.add(p.pid)) return
-        val marker = if (depth == 0) "" else if (last) "└ " else "├ "
-        out.add(PRow(p, prefix + marker))
+        out.add(PRow(p, TreeMeta(depth, isLast, flags)))
         val kids = children[p.pid]?.filter { it.pid != p.pid } ?: emptyList()
         kids.forEachIndexed { i, k ->
-            walk(k, if (depth == 0) "" else prefix + if (last) "  " else "│ ", i == kids.size - 1, depth + 1)
+            walk(k, depth + 1, i == kids.size - 1, flags + !isLast)
         }
     }
-    for (r in roots.sortedWith(cmp)) walk(r, "", true, 0)
-    // orphans (parent filtered out mid-walk) still deserve a row
-    for (p in sorted) if (!seen.contains(p.pid)) out.add(PRow(p, "· "))
+    for (r in roots.sortedWith(cmp)) walk(r, 0, true, emptyList())
+    for (p in sorted) if (!seen.contains(p.pid)) out.add(PRow(p, TreeMeta(0, true, emptyList())))
     return out
 }
