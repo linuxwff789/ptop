@@ -20,6 +20,8 @@ Android 上的极简单色任务管理器：**以 root 身份读 `/proc`**，所
 - **单色极简**：纯黑底 + 5 级灰阶，AMOLED 省电，没有花哨渐变。
 - **4 个页面**：over / proc / net / disk。
 - **进程操作**：`TERM` `KILL` `STOP` `CONT`（二次确认），进程详情（cmdline / exe / fd / 线程 / maps / status）。
+- **按应用统计**：磁盘读写来自 `/proc/uid_io/stats`（per-UID，零额外权限）；
+  网络上下行来自 `NetworkStatsManager`（per-UID，需要「使用情况访问」，首次启动由 root 自动 `appops` 授权）。
 
 ## 页面
 
@@ -27,8 +29,8 @@ Android 上的极简单色任务管理器：**以 root 身份读 `/proc`**，所
 | --- | --- |
 | `over` | CPU 总占用 + 折线 + 每核条形、内存/swap、网络与磁盘速率、温度、电池、top 8 进程 |
 | `proc` | 全部进程：PID / USER / CPU% / MEM% / THR / NAME；按 cpu/mem/pid/name 排序；搜索过滤；进程树 |
-| `net` | 各接口上下行速率、累计流量、吞吐折线 |
-| `disk` | 块设备读写速率、内存明细、thermal zones、uptime / load / PSI / 电池 |
+| `net` | 各接口上下行速率、累计流量、吞吐折线、**按应用流量 top 10** |
+| `disk` | 块设备读写速率、**按应用 IO top 10**、内存明细、温度、uptime / load / PSI / 电池 |
 
 点击任意进程打开详情页；点 `proc` 页的 `tree` 切换进程树。
 
@@ -56,6 +58,8 @@ git tag v1.0.0 && git push origin v1.0.0   # 构建并发布 Release
 ## 权限说明
 
 - `QUERY_ALL_PACKAGES`：只用于把 uid 映射成包名显示在 USER 列（例如 `u0_a307 → wechat`），不做别的。
+- `PACKAGE_USAGE_STATS`：只用于 `NetworkStatsManager` 读每个 uid 的流量；首次启动时通过
+  `su -c appops set com.linuxwff.ptop GET_USAGE_STATS allow` 自动授予，失败时网络页会提示。
 - root：全部采样都通过 `su` 执行 `/data/local/tmp/ptop/snap.sh`，脚本在首次启动时从 assets 解压。
 
 ## 已知限制
