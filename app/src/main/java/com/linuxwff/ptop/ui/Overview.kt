@@ -34,7 +34,8 @@ fun OverviewPage(s: Snapshot, onProc: (Proc) -> Unit, mod: Modifier = Modifier) 
         CpuPanel(s)
         MemPanel(s)
         StatPanel(s)
-        TopPanel(s, onProc)
+        TopPanel("TOP CPU", s.procs.sortedByDescending { it.cpu }.take(8), s, onProc)
+        TopPanel("TOP 内存", s.procs.sortedByDescending { it.memBytes }.take(6), s, onProc)
     }
 }
 
@@ -56,9 +57,6 @@ private fun CpuPanel(s: Snapshot) {
                 T("PSI ${s.psiCpu.toInt()}%", C.faint, 9.sp)
                 T("io ${s.psiIo.toInt()}%", C.faint, 9.sp)
             }
-        }
-        if (s.cores.isNotEmpty()) {
-            android.util.Log.d("ptop-ui", "n=${s.cores.size} first=${s.cores[0].idx}/${s.cores[0].pct} last=${s.cores.last().idx}/${s.cores.last().pct}")
         }
         Spacer(Modifier.height(6.dp))
         Sparkline(s.history, Modifier.fillMaxWidth().height(46.dp))
@@ -155,9 +153,8 @@ private fun Metric(label: String, value: String, mod: Modifier = Modifier) {
 }
 
 @Composable
-private fun TopPanel(s: Snapshot, onProc: (Proc) -> Unit) {
-    val top = s.procs.sortedByDescending { it.cpu }.take(8)
-    Panel("TOP 进程", "${s.procs.size} 个") {
+private fun TopPanel(title: String, top: List<Proc>, s: Snapshot, onProc: (Proc) -> Unit) {
+    Panel(title, "${top.size} 个") {
         Row(Modifier.fillMaxWidth()) {
             T(pad("PID", 7), C.faint, 9.sp)
             T(padStart("CPU%", 5), C.faint, 9.sp)
