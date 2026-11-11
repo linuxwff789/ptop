@@ -104,6 +104,16 @@ object Parse {
                     val f = line.split('\t')
                     if (f.size >= 3) out.freqs.add((f[2].toLongOrNull() ?: 0L).toInt() / 1000)
                 }
+                line.startsWith("@@IO\t") -> {
+                    val f = line.split('\t')
+                    if (f.size >= 4) {
+                        val uid = f[1].toIntOrNull()
+                        if (uid != null) out.uidIo[uid] = longArrayOf(
+                            f[2].toLongOrNull() ?: 0L,
+                            f[3].toLongOrNull() ?: 0L,
+                        )
+                    }
+                }
                 line.startsWith("@@PC\t") -> out.psiCpu = line.substring(5).trim().toFloatOrNull() ?: 0f
                 line.startsWith("@@PI\t") -> out.psiIo = line.substring(5).trim().toFloatOrNull() ?: 0f
             }

@@ -71,6 +71,33 @@ fun NetworkPage(s: Snapshot, mod: Modifier = Modifier) {
             }
         }
 
+        Panel("按应用流量", if (s.netReady) "${s.appNet.size} 个" else "未授权") {
+            if (!s.netReady) {
+                T("需要「使用情况访问」权限", C.dim, 10.sp, maxLines = 2)
+                Spacer(Modifier.height(4.dp))
+                T("已尝试通过 root 自动授权；若无效请在系统设置中开启。", C.faint, 8.5.sp, maxLines = 3)
+            } else {
+                val top = s.appNet.sortedByDescending { it.rxRate + it.txRate }.take(10)
+                val peak = (top.maxOfOrNull { it.rxRate + it.txRate } ?: 1.0).coerceAtLeast(1.0)
+                top.forEach { a ->
+                    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                        T(a.name, C.dim, 9.5.sp, modifier = Modifier.width(84.dp))
+                        Bar(((a.rxRate + a.txRate) / peak).toFloat(), Modifier.weight(1f), 4.dp)
+                        Spacer(Modifier.width(8.dp))
+                        T("↓" + padStart(fmtRate(a.rxRate), 9), C.dim, 8.5.sp)
+                        Spacer(Modifier.width(5.dp))
+                        T("↑" + padStart(fmtRate(a.txRate), 9), C.faint, 8.5.sp)
+                    }
+                    Spacer(Modifier.height(2.dp))
+                    Row(Modifier.fillMaxWidth()) {
+                        T("", C.faint, 8.sp, modifier = Modifier.width(84.dp))
+                        T("累计 ${fmtBytes((a.rxTotal + a.txTotal).toDouble())}", C.faint, 8.sp)
+                    }
+                    Spacer(Modifier.height(6.dp))
+                }
+            }
+        }
+
         Panel("说明") {
             T("速率来自 /proc/net/dev 两次采样的差值", C.faint, 9.sp, maxLines = 2)
             T("含 lo / vpn / 蜂窝接口全部计数", C.faint, 9.sp, maxLines = 2)
@@ -118,6 +145,29 @@ fun DiskPage(s: Snapshot, mod: Modifier = Modifier) {
                     T("W" + padStart(fmtRate(d.writeRate), 9), C.faint, 9.sp)
                 }
                 Spacer(Modifier.height(6.dp))
+            }
+        }
+
+        if (s.appIo.isNotEmpty()) {
+            Panel("按应用 IO", "top 10") {
+                val top = s.appIo.sortedByDescending { it.readRate + it.writeRate }.take(10)
+                val peak = (top.maxOfOrNull { it.readRate + it.writeRate } ?: 1.0).coerceAtLeast(1.0)
+                top.forEach { a ->
+                    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                        T(a.name, C.dim, 9.5.sp, modifier = Modifier.width(84.dp))
+                        Bar(((a.readRate + a.writeRate) / peak).toFloat(), Modifier.weight(1f), 4.dp)
+                        Spacer(Modifier.width(8.dp))
+                        T("R" + padStart(fmtRate(a.readRate), 9), C.dim, 8.5.sp)
+                        Spacer(Modifier.width(5.dp))
+                        T("W" + padStart(fmtRate(a.writeRate), 9), C.faint, 8.5.sp)
+                    }
+                    Spacer(Modifier.height(2.dp))
+                    Row(Modifier.fillMaxWidth()) {
+                        T("", C.faint, 8.sp, modifier = Modifier.width(84.dp))
+                        T("累计 R ${fmtBytes(a.readTotal.toDouble())}  W ${fmtBytes(a.writeTotal.toDouble())}", C.faint, 8.sp)
+                    }
+                    Spacer(Modifier.height(6.dp))
+                }
             }
         }
 

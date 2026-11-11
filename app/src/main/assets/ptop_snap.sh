@@ -41,6 +41,10 @@ BEGIN {
     else if (l ~ /^pgpgout /) { split(l, a, " "); pq = a[2] }
   }
   printf "@@V\t%d\t%d\n", pg, pq
+  while ((getline l < "/proc/uid_io/stats") > 0) {
+    split(l, a, " ")
+    if (a[1] != "") printf "@@IO\t%s\t%s\t%s\n", a[1], a[2], a[3]
+  }
   while ((getline l < "/proc/pressure/cpu") > 0) {
     split(l, a, " "); sub("avg10=", "", a[2]); printf "@@PC\t%s\n", a[2]; break
   }

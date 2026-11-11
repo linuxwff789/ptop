@@ -57,6 +57,11 @@ class Monitor(private val ctx: Context) {
     var intervalMs: Long = 1500
 
     private val owners = Owners(ctx)
+    private val appNetStats = AppNetStats(ctx, owners)
+    private var prevUidIo = HashMap<Int, LongArray>(256)
+    private var netAge = 0
+    private var cachedNet: List<AppNet> = emptyList()
+    private var usageGranted = false
     private var prevTicks = HashMap<Int, LongArray>(1024)
     private var prevCpuTotal = 0L
     private var prevWall = 0L
@@ -210,20 +215,29 @@ class Monitor(private val ctx: Context) {
             disks.add(Disk(d.name, d.readSectors, d.writeSectors, rr, wr))
         }
         prevDisk = newDisk
+
+        val appIo = ArrayList<AppIo>(p.uidIo.size)
+        val newUidIo = HashMap<Int, LongArray>(p.uidIo.size * 2)
+        for ((uid, v) in p.uidIo) {
+            val old = prevUidIo[uid]
+            val rr = if (old != null && wall > 0) (v[0] - old[0]).coerceAtLeast(0) / (wall / 1000.0) else 0.0
+            val wr = if (old != null && wall > 0) (v[1] - old[1]).coerceAtLeast(0) / (wall / 1000.0) else 0.0
+            newUidIo[uid] = v
+            if (v[0] > 0 || v[1] > 0) {
+                appIo.add(AppIo(uid, owners.short(uid), owners.pkg(uid), rr, wr, v[0], v[1]))
+            }
+        }
+        prevUidIo = newUidIo
+        if (!usageGranted) {
+            usageGranted = true
+            Thread { Root.exec("appops set ${ctx.packageName} GET_USAGE_STATS allow") }.apply { isDaemon = true }.start()
+        }
+        if (netAge++ % 3 == 0) cachedNet = appNetStats.tick()
         netHist.addLast(nets.sumOf { it.rxRate + it.txRate }.toFloat())
         while (netHist.size > 60) netHist.removeFirst()
         ioHist.addLast(disks.sumOf { it.readRate + it.writeRate }.toFloat())
         while (ioHist.size > 60) ioHist.removeFirst()
 
-        frame++
-        if (frame % 3 == 1) {
-            runCatching {
-                java.io.File(ctx.filesDir, "diag.log").appendText(
-                    "${System.currentTimeMillis()} n=${coreList.size} " +
-                        coreList.joinToString(" ") { String.format(java.util.Locale.US, "%.0f", it.pct * 100) } + "\n"
-                )
-            }
-        }
         snap.value = Snapshot(
             ts = System.currentTimeMillis(),
             cpuTotal = cpuShown,
@@ -241,6 +255,9 @@ class Monitor(private val ctx: Context) {
             history = hist.toList(),
             netHistory = netHist.toList(),
             ioHistory = ioHist.toList(),
+            appIo = appIo,
+            appNet = cachedNet,
+            netReady = appNetStats.ready,
         )
         lastGood = System.currentTimeMillis()
         phase.value = Phase.READY

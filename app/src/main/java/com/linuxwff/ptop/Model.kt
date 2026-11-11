@@ -18,6 +18,9 @@ data class Snapshot(
     val history: List<Float>,
     val netHistory: List<Float>,
     val ioHistory: List<Float>,
+    val appIo: List<AppIo> = emptyList(),
+    val appNet: List<AppNet> = emptyList(),
+    val netReady: Boolean = false,
 ) {
     val coreCount: Int get() = cores.size.coerceAtLeast(1)
 }
@@ -76,6 +79,28 @@ data class Disk(
 
 data class Temp(val zone: String, val type: String, val c: Float)
 
+/** Per-uid block IO from /proc/uid_io/stats. */
+data class AppIo(
+    val uid: Int,
+    val name: String,
+    val pkg: String?,
+    val readRate: Double,
+    val writeRate: Double,
+    val readTotal: Long,
+    val writeTotal: Long,
+)
+
+/** Per-uid network counters from NetworkStatsManager. */
+data class AppNet(
+    val uid: Int,
+    val name: String,
+    val pkg: String?,
+    val rxRate: Double,
+    val txRate: Double,
+    val rxTotal: Long,
+    val txTotal: Long,
+)
+
 data class Batt(
     val capacity: Int,
     val status: String,
@@ -109,6 +134,7 @@ class Parsed {
     val freqs = ArrayList<Int>(16)
     var psiCpu = 0f
     var psiIo = 0f
+    val uidIo = HashMap<Int, LongArray>(256)
 }
 
 data class CpuTimes(
