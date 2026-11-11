@@ -233,6 +233,14 @@ class Monitor(private val ctx: Context) {
             Thread { Root.exec("appops set ${ctx.packageName} GET_USAGE_STATS allow") }.apply { isDaemon = true }.start()
         }
         if (netAge++ % 3 == 0) cachedNet = appNetStats.tick()
+        if (netAge % 5 == 0) {
+            runCatching {
+                java.io.File(ctx.filesDir, "netdiag.log").appendText(
+                    "ready=${appNetStats.ready} n=${cachedNet.size} err=${appNetStats.error()} io=${appIo.size} " +
+                        cachedNet.take(3).joinToString(" ") { "${it.name}:${it.rxRate.toLong()}/${it.txRate.toLong()}" } + "\n"
+                )
+            }
+        }
         netHist.addLast(nets.sumOf { it.rxRate + it.txRate }.toFloat())
         while (netHist.size > 60) netHist.removeFirst()
         ioHist.addLast(disks.sumOf { it.readRate + it.writeRate }.toFloat())
