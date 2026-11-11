@@ -50,27 +50,6 @@ fun NetworkPage(s: Snapshot, mod: Modifier = Modifier) {
             Sparkline(s.netHistory, Modifier.fillMaxWidth().height(52.dp), max = peak)
         }
 
-        Panel("网络接口", "${s.net.size} 个") {
-            val top = (s.net.maxOfOrNull { it.rxRate + it.txRate } ?: 1.0).coerceAtLeast(1.0)
-            s.net.sortedByDescending { it.rxRate + it.txRate }.forEach { n ->
-                val act = (n.rxRate + n.txRate) / top
-                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                    T(n.name, C.dim, 10.sp, modifier = Modifier.width(96.dp))
-                    Bar(act.toFloat(), Modifier.weight(1f), 4.dp)
-                    Spacer(Modifier.width(8.dp))
-                    T("↓" + padStart(fmtRate(n.rxRate), 9), C.dim, 9.sp)
-                    Spacer(Modifier.width(6.dp))
-                    T("↑" + padStart(fmtRate(n.txRate), 9), C.faint, 9.sp)
-                }
-                Spacer(Modifier.height(2.dp))
-                Row(Modifier.fillMaxWidth()) {
-                    T("", C.faint, 8.sp, modifier = Modifier.width(96.dp))
-                    T("累计 收 ${fmtBytes(n.rx.toDouble())}  发 ${fmtBytes(n.tx.toDouble())}", C.faint, 8.sp)
-                }
-                Spacer(Modifier.height(7.dp))
-            }
-        }
-
         Panel("按应用流量", if (s.netReady) "${s.appNet.size} 个" else "未授权") {
             if (!s.netReady) {
                 T("需要「使用情况访问」权限", C.dim, 10.sp, maxLines = 2)
@@ -95,6 +74,27 @@ fun NetworkPage(s: Snapshot, mod: Modifier = Modifier) {
                     }
                     Spacer(Modifier.height(6.dp))
                 }
+            }
+        }
+
+        Panel("网络接口", "${s.net.size} 个") {
+            val top = (s.net.maxOfOrNull { it.rxRate + it.txRate } ?: 1.0).coerceAtLeast(1.0)
+            s.net.sortedByDescending { it.rxRate + it.txRate }.forEach { n ->
+                val act = (n.rxRate + n.txRate) / top
+                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                    T(n.name, C.dim, 10.sp, modifier = Modifier.width(96.dp))
+                    Bar(act.toFloat(), Modifier.weight(1f), 4.dp)
+                    Spacer(Modifier.width(8.dp))
+                    T("↓" + padStart(fmtRate(n.rxRate), 9), C.dim, 9.sp)
+                    Spacer(Modifier.width(6.dp))
+                    T("↑" + padStart(fmtRate(n.txRate), 9), C.faint, 9.sp)
+                }
+                Spacer(Modifier.height(2.dp))
+                Row(Modifier.fillMaxWidth()) {
+                    T("", C.faint, 8.sp, modifier = Modifier.width(96.dp))
+                    T("累计 收 ${fmtBytes(n.rx.toDouble())}  发 ${fmtBytes(n.tx.toDouble())}", C.faint, 8.sp)
+                }
+                Spacer(Modifier.height(7.dp))
             }
         }
 
@@ -133,21 +133,6 @@ fun DiskPage(s: Snapshot, mod: Modifier = Modifier) {
             Sparkline(s.ioHistory, Modifier.fillMaxWidth().height(52.dp), max = peak)
         }
 
-        Panel("块设备", "${s.disks.size} 个") {
-            val top = (s.disks.maxOfOrNull { it.readRate + it.writeRate } ?: 1.0).coerceAtLeast(1.0)
-            s.disks.sortedByDescending { it.readRate + it.writeRate }.forEach { d ->
-                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                    T(d.name, C.dim, 10.sp, modifier = Modifier.width(86.dp))
-                    Bar(((d.readRate + d.writeRate) / top).toFloat(), Modifier.weight(1f), 4.dp)
-                    Spacer(Modifier.width(8.dp))
-                    T("R" + padStart(fmtRate(d.readRate), 9), C.dim, 9.sp)
-                    Spacer(Modifier.width(6.dp))
-                    T("W" + padStart(fmtRate(d.writeRate), 9), C.faint, 9.sp)
-                }
-                Spacer(Modifier.height(6.dp))
-            }
-        }
-
         if (s.appIo.isNotEmpty()) {
             Panel("按应用 IO", "top 10") {
                 val top = s.appIo.sortedByDescending { it.readRate + it.writeRate }.take(10)
@@ -168,6 +153,21 @@ fun DiskPage(s: Snapshot, mod: Modifier = Modifier) {
                     }
                     Spacer(Modifier.height(6.dp))
                 }
+            }
+        }
+
+        Panel("块设备", "${s.disks.size} 个") {
+            val top = (s.disks.maxOfOrNull { it.readRate + it.writeRate } ?: 1.0).coerceAtLeast(1.0)
+            s.disks.sortedByDescending { it.readRate + it.writeRate }.forEach { d ->
+                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                    T(d.name, C.dim, 10.sp, modifier = Modifier.width(86.dp))
+                    Bar(((d.readRate + d.writeRate) / top).toFloat(), Modifier.weight(1f), 4.dp)
+                    Spacer(Modifier.width(8.dp))
+                    T("R" + padStart(fmtRate(d.readRate), 9), C.dim, 9.sp)
+                    Spacer(Modifier.width(6.dp))
+                    T("W" + padStart(fmtRate(d.writeRate), 9), C.faint, 9.sp)
+                }
+                Spacer(Modifier.height(6.dp))
             }
         }
 
